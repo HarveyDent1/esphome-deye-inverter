@@ -38,8 +38,8 @@ jobs:
       - name: Copy test files to main directory
         run: |
           if [ -d "tests/" ]; then
-            cp -r tests/* .
-            echo "Copied files from tests/ to main directory"
+            cp -r tests/* pv_inverter/
+            echo "Copied files from tests/ to pv_inverter/"
           else
             echo "ERROR: tests/ directory not found"
             exit 1
