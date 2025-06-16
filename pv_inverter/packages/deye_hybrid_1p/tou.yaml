@@ -117,7 +117,7 @@
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "Time of Use 3 Start"
-    address: 251
+    address: 252
     value_type: U_WORD
     icon: "mdi:clock-start"
     optionsmap:

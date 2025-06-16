@@ -78,11 +78,7 @@ sensor:
     accuracy_decimals: 0
     value_type: U_WORD
     internal: true
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> df083ddf89bff4559797b96558b9d4ffbb1ed364
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Device Modbus Address
@@ -93,11 +89,7 @@ sensor:
     value_type: U_WORD
     icon: mdi:identifier
     entity_category: diagnostic
-<<<<<<< HEAD
-
-=======
   
->>>>>>> df083ddf89bff4559797b96558b9d4ffbb1ed364
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Device Rated Power
@@ -164,11 +156,7 @@ sensor:
     value_type: U_WORD
     icon: mdi:alert-circle
     entity_category: diagnostic
-<<<<<<< HEAD
-
-=======
     
->>>>>>> df083ddf89bff4559797b96558b9d4ffbb1ed364
 binary_sensor: null
 
 switch:
@@ -270,7 +258,7 @@ text_sensor:
     modbus_controller_id: ${modbus_controller_id}
     name: Device Serial Number
     register_type: holding
-    address: 16
+    address: 3
     response_size: 10
     bitmask: 0
     raw_encode: NONE
