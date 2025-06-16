@@ -43,34 +43,6 @@ sensor:
     value_type: U_WORD
     icon: "mdi:lightning-bolt"
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Generator L2 Voltage"
-#     id: generator_l2_voltage
-#     register_type: holding
-#     address: 662
-#     unit_of_measurement: "V"
-#     device_class: voltage
-#     accuracy_decimals: 1
-#     filters:
-#       - multiply: 0.1
-#     value_type: U_WORD
-#     icon: "mdi:lightning-bolt"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Generator L3 Voltage"
-#     id: generator_l3_voltage
-#     register_type: holding
-#     address: 663
-#     unit_of_measurement: "V"
-#     device_class: voltage
-#     accuracy_decimals: 1
-#     filters:
-#       - multiply: 0.1
-#     value_type: U_WORD
-#     icon: "mdi:lightning-bolt"
-
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "Generator L1 Power"
@@ -82,27 +54,6 @@ sensor:
     value_type: S_WORD
     icon: "mdi:engine"
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Generator L2 Power"
-#     register_type: holding
-#     address: 665
-#     unit_of_measurement: "W"
-#     device_class: power
-#     accuracy_decimals: 0
-#     value_type: S_WORD
-#     icon: "mdi:engine"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Generator L3 Power"
-#     register_type: holding
-#     address: 666
-#     unit_of_measurement: "W"
-#     device_class: power
-#     accuracy_decimals: 0
-#     value_type: S_WORD
-#     icon: "mdi:engine"
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
@@ -126,19 +77,19 @@ binary_sensor:
     device_class: power
     icon: "mdi:generator-stationary"
 
-# select:
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Generator Port Use"
-#     address: 133
-#     value_type: U_WORD
-#     entity_category: config
-#     icon: "mdi:connection"
-#     optionsmap:
-#       "Generator Input": 0
-#       "SmartLoad Output": 1
-#       "Micro Inverter Input": 2
+select:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Generator Port Use"
+    address: 235
+    value_type: U_WORD
+    entity_category: config
+    icon: "mdi:connection"
+    optionsmap:
+      "Generator Input": 0
+      "SmartLoad Output": 1
+      "Micro Inverter Input": 2
 
 # switch:
 #   - platform: modbus_controller
@@ -151,25 +102,25 @@ binary_sensor:
 #     entity_category: config
 #     icon: "mdi:generator-stationary"
 
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Microinverter Export Cut-off"
-#     register_type: holding
-#     address: 178
-#     bitmask: 0x0001 # bit 0
-#     entity_category: config
-#     icon: "mdi:solar-panel"
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Microinverter Export Cut-off"
+    register_type: holding
+    address: 280
+    bitmask: 0x0000 # bit 0
+    entity_category: config
+    icon: "mdi:solar-panel"
 
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Generator Peak Shaving Enable"
-#     register_type: holding
-#     address: 178
-#     bitmask: 0x0004 # bit 2
-#     entity_category: config
-#     icon: "mdi:generator-stationary"
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Generator Peak Shaving Enable"
+    register_type: holding
+    address: 280
+    bitmask: 0x0004 # bit 4
+    entity_category: config
+    icon: "mdi:generator-stationary"
 
 #   - platform: modbus_controller
 #     use_write_multiple: true
