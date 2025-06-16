@@ -10,15 +10,15 @@ substitutions:
   default_solar_sell: "on" # "on", "off"
 
 packages:
-  init: !include packages/init.yaml
-  battery: !include packages/deye_hybrid_1p/battery.yaml
-  gen: !include packages/deye_hybrid_1p/gen.yaml
-  grid: !include packages/deye_hybrid_1p/grid.yaml
-  load: !include packages/deye_hybrid_1p/load.yaml
-  work_mode: !include packages/deye_hybrid_1p/work_mode.yaml
-  device: !include packages/deye_hybrid_1p/device.yaml
-  inverter: !include packages/deye_hybrid_1p/inverter.yaml
-  pv: !include packages/deye_hybrid_1p/pv.yaml
+  # init: !include packages/init.yaml
+  # battery: !include packages/deye_hybrid_1p/battery.yaml
+  # gen: !include packages/deye_hybrid_1p/gen.yaml
+  # grid: !include packages/deye_hybrid_1p/grid.yaml
+  # load: !include packages/deye_hybrid_1p/load.yaml
+  # work_mode: !include packages/deye_hybrid_1p/work_mode.yaml
+  # device: !include packages/deye_hybrid_1p/device.yaml
+  # inverter: !include packages/deye_hybrid_1p/inverter.yaml
+  # pv: !include packages/deye_hybrid_1p/pv.yaml
   tou: !include packages/deye_hybrid_1p/tou.yaml
 
 script:
