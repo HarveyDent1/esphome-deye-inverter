@@ -11,7 +11,7 @@ substitutions:
 
 packages:
   init: !include packages/init.yaml
-  # battery: !include packages/deye_hybrid_1p/battery.yaml
+  battery: !include packages/deye_hybrid_1p/battery.yaml
   # gen: !include packages/deye_hybrid_1p/gen.yaml
   # grid: !include packages/deye_hybrid_1p/grid.yaml
   # load: !include packages/deye_hybrid_1p/load.yaml
