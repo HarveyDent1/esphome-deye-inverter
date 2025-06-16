@@ -1,18 +1,18 @@
-# sensor:
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Daily Generator Production"
-#     id: daily_generator_production
-#     register_type: holding
-#     address: 62
-#     unit_of_measurement: "kWh"
-#     device_class: energy
-#     state_class: "total_increasing"
-#     accuracy_decimals: 1
-#     filters:
-#       - multiply: 0.1
-#     value_type: U_WORD
-#     icon: "mdi:generator-portable"
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Daily Generator Production"
+    id: daily_generator_production
+    register_type: holding
+    address: 62
+    unit_of_measurement: "kWh"
+    device_class: energy
+    state_class: "total_increasing"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+    icon: "mdi:generator-portable"
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
