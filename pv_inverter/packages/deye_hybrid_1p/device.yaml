@@ -1,43 +1,43 @@
-﻿# sensor:
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Inverter Date Time Raw 1"
-#     id: inverter_datetime_raw1
-#     register_type: holding
-#     address: 62
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+﻿sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Inverter Date Time Raw 1"
+    id: inverter_datetime_raw1
+    register_type: holding
+    address: 22
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Inverter Date Time Raw 2"
-#     id: inverter_datetime_raw2
-#     register_type: holding
-#     address: 63
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Inverter Date Time Raw 2"
+    id: inverter_datetime_raw2
+    register_type: holding
+    address: 23
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Inverter Date Time Raw 3"
-#     id: inverter_datetime_raw3
-#     register_type: holding
-#     address: 64
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Inverter Date Time Raw 3"
+    id: inverter_datetime_raw3
+    register_type: holding
+    address: 24
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Control Board Firmware Raw 11"
-#     id: device_firmware_raw_11
-#     register_type: holding
-#     address: 11
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Control Board Firmware Raw 11"
+    id: device_firmware_raw_11
+    register_type: holding
+    address: 11
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
@@ -49,126 +49,126 @@
 #     value_type: U_WORD
 #     internal: true
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Control Board Firmware Raw 15"
-#     id: device_firmware_raw_15
-#     register_type: holding
-#     address: 15
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Control Board Firmware Raw 12"
+    id: device_firmware_raw_12
+    register_type: holding
+    address: 12
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Communication Board Firmware Raw 16"
-#     id: device_comm_firmware_raw_16
-#     register_type: holding
-#     address: 16
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Communication Board Firmware Raw 13"
+    id: device_comm_firmware_raw_13
+    register_type: holding
+    address: 13
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Communication Board Firmware Raw 17"
-#     id: device_comm_firmware_raw_17
-#     register_type: holding
-#     address: 17
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Communication Board Firmware Raw 10"
+    id: device_comm_firmware_raw_10
+    register_type: holding
+    address: 10
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Communication Board Firmware Raw 18"
-#     id: device_comm_firmware_raw_18
-#     register_type: holding
-#     address: 18
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Communication Board Firmware Raw 14"
+    id: device_comm_firmware_raw_14
+    register_type: holding
+    address: 14
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Modbus Address"
-#     register_type: holding
-#     address: 1
-#     unit_of_measurement: ""
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: "mdi:identifier"
-#     entity_category: diagnostic
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Modbus Address"
+    register_type: holding
+    address: 1
+    unit_of_measurement: ""
+    accuracy_decimals: 0
+    value_type: U_WORD
+    icon: "mdi:identifier"
+    entity_category: diagnostic
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Rated Power"
-#     id: device_rated_power_raw
-#     register_type: holding
-#     address: 20
-#     unit_of_measurement: "W"
-#     device_class: power
-#     accuracy_decimals: 0
-#     entity_category: diagnostic
-#     filters:
-#       - multiply: 0.1
-#     value_type: U_DWORD_R
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Rated Power"
+    id: device_rated_power_raw
+    register_type: holding
+    address: 16
+    unit_of_measurement: "W"
+    device_class: power
+    accuracy_decimals: 0
+    entity_category: diagnostic
+    filters:
+      - multiply: 0.1
+    value_type: U_DWORD_R
 
-#     icon: "mdi:flash"
+    icon: "mdi:flash"
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device MPPTs"
-#     register_type: holding
-#     address: 22
-#     unit_of_measurement: ""
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: "mdi:solar-panel"
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device MPPTs"
+    register_type: holding
+    address: 18
+    unit_of_measurement: ""
+    accuracy_decimals: 0
+    value_type: U_WORD
+    icon: "mdi:solar-panel"
 
-#     entity_category: diagnostic
-#     filters:
-#       - lambda: |-
-#           uint16_t value = (uint16_t)x;
-#           // Extract upper nibble (bits 8-11) and shift right 8 bits
-#           uint16_t mppts = (value >> 8) & 0x0F;
-#           // Validation: if value exceeds 12 MPPTs, use default of 2
-#           if (mppts < 1 || mppts > 12) {
-#             return 2.0;
-#           }
-#           return (float)mppts;
+    entity_category: diagnostic
+    filters:
+      - lambda: |-
+          uint16_t value = (uint16_t)x;
+          // Extract upper nibble (bits 8-11) and shift right 8 bits
+          uint16_t mppts = (value >> 8) & 0x0F;
+          // Validation: if value exceeds 12 MPPTs, use default of 2
+          if (mppts < 1 || mppts > 12) {
+            return 2.0;
+          }
+          return (float)mppts;
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Phases"
-#     register_type: holding
-#     address: 22
-#     unit_of_measurement: ""
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: "mdi:transmission-tower"
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Phases"
+    register_type: holding
+    address: 18
+    unit_of_measurement: ""
+    accuracy_decimals: 0
+    value_type: U_WORD
+    icon: "mdi:transmission-tower"
 
-#     entity_category: diagnostic
-#     filters:
-#       - lambda: |-
-#           uint16_t value = (uint16_t)x;
-#           // Extract lower nibble (bits 0-3)
-#           uint16_t phases = value & 0x0F;
-#           // Validation: if value exceeds 3 phases, use default of 3
-#           if (phases < 1 || phases > 3) {
-#             return 3.0;
-#           }
-#           return (float)phases;
+    entity_category: diagnostic
+    filters:
+      - lambda: |-
+          uint16_t value = (uint16_t)x;
+          // Extract lower nibble (bits 0-3)
+          uint16_t phases = value & 0x0F;
+          // Validation: if value exceeds 3 phases, use default of 3
+          if (phases < 1 || phases > 3) {
+            return 3.0;
+          }
+          return (float)phases;
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Communications Board Failure Status"
-#     register_type: holding
-#     address: 548
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: "mdi:alert-circle"
-#     entity_category: diagnostic
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Communications Board Failure Status"
+    register_type: holding
+    address: 59
+    accuracy_decimals: 0
+    value_type: U_WORD
+    icon: "mdi:alert-circle"
+    entity_category: diagnostic
 
 # binary_sensor:
 #   - platform: modbus_controller
@@ -210,19 +210,19 @@
 #     device_class: running
 #     icon: "mdi:power"
 
-# switch:
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Power Switch"
-#     id: switch_power
-#     register_type: holding
-#     address: 80
-#     bitmask: 1
-#     entity_category: config
-#     icon: "mdi:toggle-switch"
+switch:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Power Switch"
+    id: switch_power
+    register_type: holding
+    address: 43
+    bitmask: 1
+    entity_category: config
+    icon: "mdi:toggle-switch"
 
-# text_sensor:
+text_sensor:
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
 #     bitmask: 0
@@ -319,88 +319,88 @@
 #         return std::string("?");
 #       }
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     bitmask: 0
-#     register_type: holding
-#     address: 500
-#     raw_encode: HEXBYTES
-#     name: "Running Status"
-#     icon: "mdi:play-circle"
-#     lambda: |-
-#       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
-#       switch (value) {
-#         case 0: return std::string("standby");
-#         case 1: return std::string("selfcheck");
-#         case 2: return std::string("normal");
-#         case 3: return std::string("alarm");
-#         case 4: return std::string("fault");
-#         default: return std::string("----");
-#       }
-#       return x;
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    bitmask: 0
+    register_type: holding
+    address: 500
+    raw_encode: HEXBYTES
+    name: "Running Status"
+    icon: "mdi:play-circle"
+    lambda: |-
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      switch (value) {
+        case 0: return std::string("standby");
+        case 1: return std::string("selfcheck");
+        case 2: return std::string("normal");
+        case 3: return std::string("alarm");
+        case 4: return std::string("fault");
+        default: return std::string("----");
+      }
+      return x;
 
-#   - platform: template
-#     name: "Device Date Time"
-#     update_interval: 10s
-#     icon: "mdi:clock"
-#     entity_category: diagnostic
-#     lambda: |-
-#       auto raw1 = (uint16_t)id(inverter_datetime_raw1).state;
-#       auto raw2 = (uint16_t)id(inverter_datetime_raw2).state;
-#       auto raw3 = (uint16_t)id(inverter_datetime_raw3).state;
+  - platform: template
+    name: "Device Date Time"
+    update_interval: 10s
+    icon: "mdi:clock"
+    entity_category: diagnostic
+    lambda: |-
+      auto raw1 = (uint16_t)id(inverter_datetime_raw1).state;
+      auto raw2 = (uint16_t)id(inverter_datetime_raw2).state;
+      auto raw3 = (uint16_t)id(inverter_datetime_raw3).state;
 
-#       if (isnan(id(inverter_datetime_raw1).state) || 
-#           isnan(id(inverter_datetime_raw2).state) || 
-#           isnan(id(inverter_datetime_raw3).state)) {
-#         return {"N/A"};
-#       }
+      if (isnan(id(inverter_datetime_raw1).state) || 
+          isnan(id(inverter_datetime_raw2).state) || 
+          isnan(id(inverter_datetime_raw3).state)) {
+        return {"N/A"};
+      }
 
-#       int year = 2000 + ((raw1 >> 8) & 0xFF);
-#       int month = raw1 & 0xFF;
-#       int day = (raw2 >> 8) & 0xFF;
-#       int hour = raw2 & 0xFF;
-#       int minute = (raw3 >> 8) & 0xFF;
-#       int second = raw3 & 0xFF;
+      int year = 2000 + ((raw1 >> 8) & 0xFF);
+      int month = raw1 & 0xFF;
+      int day = (raw2 >> 8) & 0xFF;
+      int hour = raw2 & 0xFF;
+      int minute = (raw3 >> 8) & 0xFF;
+      int second = raw3 & 0xFF;
 
-#       if (month < 1 || month > 12 || day < 1 || day > 31 || 
-#           hour > 23 || minute > 59 || second > 59) {
-#         return {"Invalid"};
-#       }
+      if (month < 1 || month > 12 || day < 1 || day > 31 || 
+          hour > 23 || minute > 59 || second > 59) {
+        return {"Invalid"};
+      }
 
-#       char buffer[20];
-#       snprintf(buffer, sizeof(buffer), "%04d-%02d-%02d %02d:%02d:%02d", 
-#               year, month, day, hour, minute, second);
-#       return {buffer};
+      char buffer[20];
+      snprintf(buffer, sizeof(buffer), "%04d-%02d-%02d %02d:%02d:%02d", 
+              year, month, day, hour, minute, second);
+      return {buffer};
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Type"
-#     register_type: holding
-#     address: 0
-#     bitmask: 0
-#     raw_encode: HEXBYTES
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Type"
+    register_type: holding
+    address: 0
+    bitmask: 0
+    raw_encode: HEXBYTES
 
-#     icon: "mdi:chip"
-#     entity_category: diagnostic
-#     lambda: |-
-#       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
-#       switch (value) {
-#         case 0x0000: return std::string("Unknown");
-#         case 0x0002:
-#         case 0x0200: return std::string("String Inverter");
-#         case 0x0003:
-#         case 0x0300: return std::string("Single-Phase Hybrid Inverter");
-#         case 0x0004:
-#         case 0x0400: return std::string("Microinverter");
-#         case 0x0005:
-#         case 0x0500: return std::string("LV 3-Phase Hybrid Inverter");
-#         case 0x0006: return std::string("HV 3-Phase Hybrid Inverter");
-#         case 0x0007:
-#         case 0x0600: return std::string("HV 3-Phase Inverter 6-15kW");
-#         case 0x0008:
-#         case 0x0601: return std::string("HV 3-Phase Inverter 20-50kW");
-#         default: return std::string("Unknown");
-#       }
+    icon: "mdi:chip"
+    entity_category: diagnostic
+    lambda: |-
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      switch (value) {
+        case 0x0000: return std::string("Unknown");
+        case 0x0002:
+        case 0x0200: return std::string("String Inverter");
+        case 0x0003:
+        case 0x0300: return std::string("Single-Phase Hybrid Inverter");
+        case 0x0004:
+        case 0x0400: return std::string("Microinverter");
+        case 0x0005:
+        case 0x0500: return std::string("LV 3-Phase Hybrid Inverter");
+        case 0x0006: return std::string("HV 3-Phase Hybrid Inverter");
+        case 0x0007:
+        case 0x0600: return std::string("HV 3-Phase Inverter 6-15kW");
+        case 0x0008:
+        case 0x0601: return std::string("HV 3-Phase Inverter 20-50kW");
+        default: return std::string("Unknown");
+      }
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
@@ -419,28 +419,28 @@
 #       snprintf(buffer, sizeof(buffer), "%04X", value);
 #       return std::string(buffer);
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Serial Number"
-#     register_type: holding
-#     address: 3
-#     response_size: 10
-#     bitmask: 0
-#     raw_encode: NONE
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Serial Number"
+    register_type: holding
+    address: 16
+    response_size: 10
+    bitmask: 0
+    raw_encode: NONE
 
-#     icon: "mdi:barcode"
-#     entity_category: diagnostic
-#     lambda: |-
-#       if (x.size() < 10) return std::string("N/A");
-#       std::string serial;
+    icon: "mdi:barcode"
+    entity_category: diagnostic
+    lambda: |-
+      if (x.size() < 10) return std::string("N/A");
+      std::string serial;
 
-#       for (int i = 0; i < 10; i += 2) {
-#         char high = x[i];
-#         char low = x[i + 1];
-#         if (high != 0) serial += high;
-#         if (low != 0) serial += low;
-#       }
-#       return serial.empty() ? std::string("N/A") : serial;
+      for (int i = 0; i < 10; i += 2) {
+        char high = x[i];
+        char low = x[i + 1];
+        if (high != 0) serial += high;
+        if (low != 0) serial += low;
+      }
+      return serial.empty() ? std::string("N/A") : serial;
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
@@ -459,39 +459,71 @@
 #       snprintf(buffer, sizeof(buffer), "%04X", value);
 #       return std::string(buffer);
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Arc Board Firmware Version"
-#     register_type: holding
-#     address: 12
-#     bitmask: 0
-#     raw_encode: NONE
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Arc Board Firmware Version"
+    register_type: holding
+    address: 1
+    bitmask: 0
+    raw_encode: NONE
 
-#     icon: "mdi:chip"
-#     entity_category: diagnostic
-#     lambda: |-
-#       if (x.size() < 2) return std::string("N/A");
-#       uint16_t value = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
-#       char buffer[20];
-#       snprintf(buffer, sizeof(buffer), "%04X", value);
-#       return std::string(buffer);
+    icon: "mdi:chip"
+    entity_category: diagnostic
+    lambda: |-
+      if (x.size() < 2) return std::string("N/A");
+      uint16_t value = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
+      char buffer[20];
+      snprintf(buffer, sizeof(buffer), "%04X", value);
+      return std::string(buffer);
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Device Slave MCU Version"
-#     register_type: holding
-#     address: 13
-#     bitmask: 0
-#     raw_encode: NONE
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Arc Board Firmware Version"
+    register_type: holding
+    address: 3
+    bitmask: 0
+    raw_encode: NONE
 
-#     icon: "mdi:chip"
-#     entity_category: diagnostic
-#     lambda: |-
-#       if (x.size() < 2) return std::string("N/A");
-#       uint16_t value = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
-#       char buffer[20];
-#       snprintf(buffer, sizeof(buffer), "%04X", value);
-#       return std::string(buffer);
+    icon: "mdi:chip"
+    entity_category: diagnostic
+    lambda: |-
+      if (x.size() < 2) return std::string("N/A");
+      uint16_t value = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
+      char buffer[20];
+      snprintf(buffer, sizeof(buffer), "%04X", value);
+      return std::string(buffer);
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Slave MCU Version"
+    register_type: holding
+    address: 2
+    bitmask: 0
+    raw_encode: NONE
+    icon: "mdi:chip"
+    entity_category: diagnostic
+    lambda: |-
+      if (x.size() < 2) return std::string("N/A");
+      uint16_t value = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
+      char buffer[20];
+      snprintf(buffer, sizeof(buffer), "%04X", value);
+      return std::string(buffer);
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Device Slave MCU Version"
+    register_type: holding
+    address: 4
+    bitmask: 0
+    raw_encode: NONE
+    icon: "mdi:chip"
+    entity_category: diagnostic
+    lambda: |-
+      if (x.size() < 2) return std::string("N/A");
+      uint16_t value = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
+      char buffer[20];
+      snprintf(buffer, sizeof(buffer), "%04X", value);
+      return std::string(buffer);
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
@@ -510,49 +542,49 @@
 #         default: return std::string("Unknown");
 #       }
 
-#   - platform: template
-#     name: "Device MAIN Firmware Version"
-#     icon: "mdi:chip"
-#     update_interval: 600s
-#     entity_category: diagnostic
-#     lambda: |-
-#       auto reg14 = (uint16_t)id(device_firmware_raw_14).state;
-#       auto reg15 = (uint16_t)id(device_firmware_raw_15).state;
-#       auto reg11 = (uint16_t)id(device_firmware_raw_11).state;
+  - platform: template
+    name: "Device MAIN Firmware Version"
+    icon: "mdi:chip"
+    update_interval: 600s
+    entity_category: diagnostic
+    lambda: |-
+      auto reg14 = (uint16_t)id(device_firmware_raw_14).state;
+      auto reg15 = (uint16_t)id(device_firmware_raw_15).state;
+      auto reg11 = (uint16_t)id(device_firmware_raw_11).state;
 
-#       if (isnan(id(device_firmware_raw_14).state) || 
-#           isnan(id(device_firmware_raw_15).state) || 
-#           isnan(id(device_firmware_raw_11).state)) {
-#         return {"N/A"};
-#       }
+      if (isnan(id(device_firmware_raw_14).state) || 
+          isnan(id(device_firmware_raw_15).state) || 
+          isnan(id(device_firmware_raw_11).state)) {
+        return {"N/A"};
+      }
 
-#       char buffer[50];
-#       snprintf(buffer, sizeof(buffer), "%04X-%04X-%04X", reg14, reg15, reg11);
-#       return {buffer};
+      char buffer[50];
+      snprintf(buffer, sizeof(buffer), "%04X-%04X-%04X", reg14, reg15, reg11);
+      return {buffer};
 
-#   - platform: template
-#     name: "Device HMI Firmware Version"
-#     update_interval: 600s
-#     icon: "mdi:chip"
-#     entity_category: diagnostic
-#     lambda: |-
-#       auto reg17 = (uint16_t)id(device_comm_firmware_raw_17).state;
-#       auto reg18 = (uint16_t)id(device_comm_firmware_raw_18).state;
-#       auto reg16 = (uint16_t)id(device_comm_firmware_raw_16).state;
+  - platform: template
+    name: "Device HMI Firmware Version"
+    update_interval: 600s
+    icon: "mdi:chip"
+    entity_category: diagnostic
+    lambda: |-
+      auto reg17 = (uint16_t)id(device_comm_firmware_raw_17).state;
+      auto reg18 = (uint16_t)id(device_comm_firmware_raw_18).state;
+      auto reg16 = (uint16_t)id(device_comm_firmware_raw_16).state;
 
-#       if (isnan(id(device_comm_firmware_raw_17).state) || 
-#           isnan(id(device_comm_firmware_raw_18).state) || 
-#           isnan(id(device_comm_firmware_raw_16).state)) {
-#         return {"N/A"};
-#       }
+      if (isnan(id(device_comm_firmware_raw_17).state) || 
+          isnan(id(device_comm_firmware_raw_18).state) || 
+          isnan(id(device_comm_firmware_raw_16).state)) {
+        return {"N/A"};
+      }
 
-#       char buffer[50];
-#       if (reg16 == 0) {
-#         snprintf(buffer, sizeof(buffer), "%04X-%04X", reg17, reg18);
-#       } else {
-#         snprintf(buffer, sizeof(buffer), "%04X-%04X-%04X", reg17, reg18, reg16);
-#       }
-#       return {buffer};
+      char buffer[50];
+      if (reg16 == 0) {
+        snprintf(buffer, sizeof(buffer), "%04X-%04X", reg17, reg18);
+      } else {
+        snprintf(buffer, sizeof(buffer), "%04X-%04X-%04X", reg17, reg18, reg16);
+      }
+      return {buffer};
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
