@@ -48,5 +48,5 @@ jobs:
       - name: ESPHome ${{ matrix.esphome-version }}
         uses: esphome/build-action@v7
         with:
-          pv_inverter/${{ matrix.file }}.yaml
+          yaml-file: pv_inverter/${{ matrix.file }}.yaml
           version: ${{ matrix.esphome-version }}
