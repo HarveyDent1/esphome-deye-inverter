@@ -1,4 +1,4 @@
-﻿sensor:
+sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Inverter Date Time Raw 1
@@ -78,7 +78,11 @@
     accuracy_decimals: 0
     value_type: U_WORD
     internal: true
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> df083ddf89bff4559797b96558b9d4ffbb1ed364
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Device Modbus Address
@@ -89,7 +93,11 @@
     value_type: U_WORD
     icon: mdi:identifier
     entity_category: diagnostic
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> df083ddf89bff4559797b96558b9d4ffbb1ed364
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Device Rated Power
@@ -156,7 +164,11 @@
     value_type: U_WORD
     icon: mdi:alert-circle
     entity_category: diagnostic
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> df083ddf89bff4559797b96558b9d4ffbb1ed364
 binary_sensor: null
 
 switch:
@@ -170,6 +182,7 @@ switch:
     bitmask: 1
     entity_category: config
     icon: mdi:toggle-switch
+
 text_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
@@ -190,6 +203,7 @@ text_sensor:
         default: return std::string("----");
       }
       return x;
+
   - platform: template
     name: Device Date Time
     update_interval: 10s
@@ -222,6 +236,7 @@ text_sensor:
       snprintf(buffer, sizeof(buffer), "%04d-%02d-%02d %02d:%02d:%02d", 
               year, month, day, hour, minute, second);
       return {buffer};
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Device Type
@@ -250,6 +265,7 @@ text_sensor:
         case 0x0601: return std::string("HV 3-Phase Inverter 20-50kW");
         default: return std::string("Unknown");
       }
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Device Serial Number
@@ -271,6 +287,25 @@ text_sensor:
         if (low != 0) serial += low;
       }
       return serial.empty() ? std::string("N/A") : serial;
+<<<<<<< HEAD
+
+  # - platform: modbus_controller
+  #   modbus_controller_id: ${modbus_controller_id}
+  #   name: Device Arc Board Firmware Version
+  #   register_type: holding
+  #   address: 1
+  #   bitmask: 0
+  #   raw_encode: NONE
+  #   icon: mdi:chip
+  #   entity_category: diagnostic
+  #   lambda: |-
+  #     if (x.size() < 2) return std::string("N/A");
+  #     uint16_t value = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
+  #     char buffer[20];
+  #     snprintf(buffer, sizeof(buffer), "%04X", value);
+  #     return std::string(buffer);
+
+=======
  
   # - platform: modbus_controller
   #   modbus_controller_id: ${modbus_controller_id}
@@ -288,6 +323,7 @@ text_sensor:
   #     snprintf(buffer, sizeof(buffer), "%04X", value);
   #     return std::string(buffer);
  
+>>>>>>> df083ddf89bff4559797b96558b9d4ffbb1ed364
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Device Arc Board Firmware Version
@@ -303,6 +339,7 @@ text_sensor:
       char buffer[20];
       snprintf(buffer, sizeof(buffer), "%04X", value);
       return std::string(buffer);
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Device Slave MCU Version
@@ -318,6 +355,7 @@ text_sensor:
       char buffer[20];
       snprintf(buffer, sizeof(buffer), "%04X", value);
       return std::string(buffer);
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Device Slave MCU Version
@@ -333,6 +371,7 @@ text_sensor:
       char buffer[20];
       snprintf(buffer, sizeof(buffer), "%04X", value);
       return std::string(buffer);
+
   - platform: template
     name: Device MAIN Firmware Version
     icon: mdi:chip
@@ -352,6 +391,7 @@ text_sensor:
       char buffer[50];
       snprintf(buffer, sizeof(buffer), "%04X-%04X-%04X", reg14, reg15, reg11);
       return {buffer};
+
   # - platform: template
   #   name: Device HMI Firmware Version
   #   update_interval: 600s
