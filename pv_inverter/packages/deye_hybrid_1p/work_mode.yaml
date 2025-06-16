@@ -1,99 +1,99 @@
-﻿select:
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Energy Management Priority"
-    address: 141
-    value_type: U_WORD
-    icon: "mdi:priority-high"
-    optionsmap:
-      "Battery First": 0
-      "Load First": 1
+﻿# select:
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Energy Management Priority"
+#     address: 141
+#     value_type: U_WORD
+#     icon: "mdi:priority-high"
+#     optionsmap:
+#       "Battery First": 0
+#       "Load First": 1
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: system_work_mode
-    name: "System Work Mode"
-    address: 142
-    value_type: U_WORD
-    icon: "mdi:cog"
-    optionsmap:
-      "Selling First": 0
-      "Zero Export To Load": 1
-      "Zero Export To CT": 2
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     id: system_work_mode
+#     name: "System Work Mode"
+#     address: 142
+#     value_type: U_WORD
+#     icon: "mdi:cog"
+#     optionsmap:
+#       "Selling First": 0
+#       "Zero Export To Load": 1
+#       "Zero Export To CT": 2
 
-switch:
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Solar Sell"
-    id: switch_solar_sell
-    register_type: holding
-    address: 145
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:toggle-switch"
+# switch:
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Solar Sell"
+#     id: switch_solar_sell
+#     register_type: holding
+#     address: 145
+#     bitmask: 1
+#     entity_category: config
+#     icon: "mdi:toggle-switch"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Grid Peak Shaving Enable"
-    register_type: holding
-    address: 178
-    bitmask: 0x0010 # bit 4
-    icon: "mdi:transmission-tower"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Grid Peak Shaving Enable"
+#     register_type: holding
+#     address: 178
+#     bitmask: 0x0010 # bit 4
+#     icon: "mdi:transmission-tower"
 
-number:
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: max_sell_power
-    name: "Max Sell Power"
-    unit_of_measurement: W
-    device_class: power
-    min_value: 0
-    step: 1
-    address: 143
-    value_type: U_WORD
-    icon: "mdi:cash-multiple"
+# number:
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     id: max_sell_power
+#     name: "Max Sell Power"
+#     unit_of_measurement: W
+#     device_class: power
+#     min_value: 0
+#     step: 1
+#     address: 143
+#     value_type: U_WORD
+#     icon: "mdi:cash-multiple"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Max Solar Power"
-    id: max_solar_power
-    unit_of_measurement: W
-    device_class: power
-    min_value: 0
-    step: 1
-    address: 340
-    value_type: U_WORD
-    icon: "mdi:solar-power"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Max Solar Power"
+#     id: max_solar_power
+#     unit_of_measurement: W
+#     device_class: power
+#     min_value: 0
+#     step: 1
+#     address: 340
+#     value_type: U_WORD
+#     icon: "mdi:solar-power"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Zero Export Power"
-    address: 104
-    unit_of_measurement: "W"
-    device_class: power
-    value_type: U_WORD
-    min_value: 20
-    max_value: 500
-    step: 1
-    icon: "mdi:transmission-tower-import"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Zero Export Power"
+#     address: 104
+#     unit_of_measurement: "W"
+#     device_class: power
+#     value_type: U_WORD
+#     min_value: 20
+#     max_value: 500
+#     step: 1
+#     icon: "mdi:transmission-tower-import"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Grid Peak Shaving Power"
-    id: grid_peak_shaving_power
-    register_type: holding
-    address: 191
-    unit_of_measurement: "W"
-    device_class: power
-    value_type: U_WORD
-    min_value: 0
-    step: 1
-    icon: "mdi:transmission-tower"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Grid Peak Shaving Power"
+#     id: grid_peak_shaving_power
+#     register_type: holding
+#     address: 191
+#     unit_of_measurement: "W"
+#     device_class: power
+#     value_type: U_WORD
+#     min_value: 0
+#     step: 1
+#     icon: "mdi:transmission-tower"
