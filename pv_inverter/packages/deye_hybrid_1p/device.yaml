@@ -287,7 +287,6 @@ text_sensor:
         if (low != 0) serial += low;
       }
       return serial.empty() ? std::string("N/A") : serial;
-<<<<<<< HEAD
 
   # - platform: modbus_controller
   #   modbus_controller_id: ${modbus_controller_id}
@@ -305,7 +304,6 @@ text_sensor:
   #     snprintf(buffer, sizeof(buffer), "%04X", value);
   #     return std::string(buffer);
 
-=======
  
   # - platform: modbus_controller
   #   modbus_controller_id: ${modbus_controller_id}
@@ -323,7 +321,6 @@ text_sensor:
   #     snprintf(buffer, sizeof(buffer), "%04X", value);
   #     return std::string(buffer);
  
->>>>>>> df083ddf89bff4559797b96558b9d4ffbb1ed364
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: Device Arc Board Firmware Version
