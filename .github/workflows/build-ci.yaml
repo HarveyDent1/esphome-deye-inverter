@@ -1,17 +1,17 @@
 name: Build CI
 
 on:
-  push:
-    branches: [main]
   pull_request:
-    branches: [main]
+    branches: [main, master, develop]
+  push:
+    branches: [main, master, develop]
   release:
     types: [published]
   schedule:
     - cron: "0 0 * * *"
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
@@ -26,20 +26,27 @@ jobs:
           - deye_hybrid_1p_lv
           - deye_hybrid_3p_lv
           - deye_hybrid_3p_hv
+
         esphome-version:
           - stable
           - beta
           - dev
-
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      - name: List YAMLs in pv_inverter/
-        run: ls -la pv_inverter/
+      - name: Copy test files to main directory
+        run: |
+          if [ -d "tests/" ]; then
+            cp -r tests/* .
+            echo "Copied files from tests/ to main directory"
+          else
+            echo "ERROR: tests/ directory not found"
+            exit 1
+          fi
 
-      - name: Build with ESPHome ${{ matrix.esphome-version }}
+      - name: ESPHome ${{ matrix.esphome-version }}
         uses: esphome/build-action@v7
         with:
-          yaml-file: pv_inverter/${{ matrix.file }}.yaml
+          yaml-file: ${{ matrix.file }}.yaml
           version: ${{ matrix.esphome-version }}
