@@ -1,747 +1,747 @@
-sensor:
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Daily Battery Charge"
-    id: daily_battery_charge
-    register_type: holding
-    address: 70
-    unit_of_measurement: "kWh"
-    device_class: energy
-    state_class: "total_increasing"
-    accuracy_decimals: 1
-    filters:
-      - multiply: 0.1
-    value_type: U_WORD
-    icon: "mdi:battery-charging"
-
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Daily Battery Discharge"
-    id: daily_battery_discharge
-    register_type: holding
-    address: 71
-    unit_of_measurement: "kWh"
-    device_class: energy
-    state_class: "total_increasing"
-    accuracy_decimals: 1
-    filters:
-      - multiply: 0.1
-    value_type: U_WORD
-    icon: "mdi:battery-minus"
-
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Total Battery Charge"
-    id: total_battery_charge
-    register_type: holding
-    address: 72
-    unit_of_measurement: "kWh"
-    device_class: energy
-    state_class: "total_increasing"
-    accuracy_decimals: 1
-    value_type: U_DWORD_R
-    filters:
-      - multiply: 0.1
-    icon: "mdi:battery-charging-100"
-
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Total Battery Discharge"
-    id: total_battery_discharge
-    register_type: holding
-    address: 74
-    unit_of_measurement: "kWh"
-    device_class: energy
-    state_class: "total_increasing"
-    accuracy_decimals: 1
-    value_type: U_DWORD_R
-    filters:
-      - multiply: 0.1
-    icon: "mdi:battery-arrow-down"
-
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Temperature"
-    register_type: holding
-    address: 182
-    unit_of_measurement: "°C"
-    device_class: temperature
-    accuracy_decimals: 0
-    value_type: S_WORD
-    filters:
-      - offset: -1000
-      - multiply: 0.1
-    icon: "mdi:thermometer"
-
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Voltage"
-    id: battery_voltage
-    register_type: holding
-    address: 183
-    unit_of_measurement: "V"
-    device_class: voltage
-    accuracy_decimals: 2
-    filters:
-      - multiply: 0.01
-    value_type: U_WORD
-    icon: "mdi:flash"
-
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery"
-    register_type: holding
-    address: 184
-    unit_of_measurement: "%"
-    device_class: battery
-    accuracy_decimals: 0
-    value_type: U_WORD
-    icon: "mdi:battery"
-
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Power"
-    id: battery_power
-    register_type: holding
-    address: 190
-    unit_of_measurement: "W"
-    device_class: power
-    accuracy_decimals: 0
-    value_type: S_WORD
-    icon: "mdi:lightning-bolt"
-
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Current"
-    register_type: holding
-    address: 191
-    unit_of_measurement: "A"
-    device_class: current
-    accuracy_decimals: 2
-    filters:
-      - multiply: 0.01
-    value_type: S_WORD
-    icon: "mdi:current-dc"
-
+# sensor:
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery Corrected Capacity"
-#     id: battery_corrected_capacity
+#     name: "Daily Battery Charge"
+#     id: daily_battery_charge
 #     register_type: holding
-#     address: 592
-#     unit_of_measurement: "Ah"
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: "mdi:battery"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery BMS Charging Voltage"
-#     register_type: holding
-#     address: 210
-#     unit_of_measurement: "V"
-#     device_class: voltage
-#     accuracy_decimals: 2
-#     filters:
-#       - multiply: 0.01
-#     value_type: U_WORD
-#     icon: "mdi:flash-triangle"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery BMS Discharging Voltage"
-#     register_type: holding
-#     address: 211
-#     unit_of_measurement: "V"
-#     device_class: voltage
-#     accuracy_decimals: 2
-#     filters:
-#       - multiply: 0.01
-#     value_type: U_WORD
-#     icon: "mdi:flash-triangle-outline"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery BMS Charging Current"
-#     register_type: holding
-#     address: 212
-#     unit_of_measurement: "A"
-#     device_class: current
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: "mdi:current-dc"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery BMS Discharging Current"
-#     register_type: holding
-#     address: 213
-#     unit_of_measurement: "A"
-#     device_class: current
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: "mdi:current-dc"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery BMS SOC"
-#     register_type: holding
-#     address: 214
-#     unit_of_measurement: "%"
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: "mdi:battery"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery BMS Voltage"
-#     register_type: holding
-#     address: 215
-#     unit_of_measurement: "V"
-#     device_class: voltage
-#     accuracy_decimals: 2
-#     filters:
-#       - multiply: 0.01
-#     value_type: U_WORD
-#     icon: "mdi:sine-wave"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery BMS Current"
-#     register_type: holding
-#     address: 216
-#     unit_of_measurement: "A"
-#     device_class: current
+#     address: 70
+#     unit_of_measurement: "kWh"
+#     device_class: energy
+#     state_class: "total_increasing"
 #     accuracy_decimals: 1
 #     filters:
 #       - multiply: 0.1
-#     value_type: S_WORD
-#     icon: "mdi:current-dc"
-
-  # - platform: modbus_controller
-  #   modbus_controller_id: ${modbus_controller_id}
-  #   name: "Battery BMS Max Charging Current"
-  #   register_type: holding
-  #   address: 210
-  #   unit_of_measurement: "A"
-  #   device_class: current
-  #   accuracy_decimals: 0
-  #   value_type: U_WORD
-  #   icon: "mdi:current-dc"
-
-  # - platform: modbus_controller
-  #   modbus_controller_id: ${modbus_controller_id}
-  #   name: "Battery BMS Max Discharging Current"
-  #   register_type: holding
-  #   address: 211
-  #   unit_of_measurement: "A"
-  #   device_class: current
-  #   accuracy_decimals: 0
-  #   value_type: U_WORD
-  #   icon: "mdi:current-dc"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery BMS Other Symbol"
-#     register_type: holding
-#     address: 222
-#     accuracy_decimals: 0
 #     value_type: U_WORD
-#     icon: "mdi:battery-unknown"
+#     icon: "mdi:battery-charging"
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery 2 Voltage"
-#     id: battery_2_voltage
+#     name: "Daily Battery Discharge"
+#     id: daily_battery_discharge
 #     register_type: holding
-#     address: 593
+#     address: 71
+#     unit_of_measurement: "kWh"
+#     device_class: energy
+#     state_class: "total_increasing"
+#     accuracy_decimals: 1
+#     filters:
+#       - multiply: 0.1
+#     value_type: U_WORD
+#     icon: "mdi:battery-minus"
+
+#   - platform: modbus_controller
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Total Battery Charge"
+#     id: total_battery_charge
+#     register_type: holding
+#     address: 72
+#     unit_of_measurement: "kWh"
+#     device_class: energy
+#     state_class: "total_increasing"
+#     accuracy_decimals: 1
+#     value_type: U_DWORD_R
+#     filters:
+#       - multiply: 0.1
+#     icon: "mdi:battery-charging-100"
+
+#   - platform: modbus_controller
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Total Battery Discharge"
+#     id: total_battery_discharge
+#     register_type: holding
+#     address: 74
+#     unit_of_measurement: "kWh"
+#     device_class: energy
+#     state_class: "total_increasing"
+#     accuracy_decimals: 1
+#     value_type: U_DWORD_R
+#     filters:
+#       - multiply: 0.1
+#     icon: "mdi:battery-arrow-down"
+
+#   - platform: modbus_controller
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Temperature"
+#     register_type: holding
+#     address: 182
+#     unit_of_measurement: "°C"
+#     device_class: temperature
+#     accuracy_decimals: 0
+#     value_type: S_WORD
+#     filters:
+#       - offset: -1000
+#       - multiply: 0.1
+#     icon: "mdi:thermometer"
+
+#   - platform: modbus_controller
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Voltage"
+#     id: battery_voltage
+#     register_type: holding
+#     address: 183
 #     unit_of_measurement: "V"
 #     device_class: voltage
 #     accuracy_decimals: 2
 #     filters:
 #       - multiply: 0.01
 #     value_type: U_WORD
-#     disabled_by_default: true
-#     icon: "mdi:flash-outline"
+#     icon: "mdi:flash"
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery 2 Current"
+#     name: "Battery"
 #     register_type: holding
-#     address: 594
-#     unit_of_measurement: "A"
-#     device_class: current
-#     accuracy_decimals: 2
-#     filters:
-#       - multiply: 0.01
-#     value_type: S_WORD
-#     disabled_by_default: true
-#     icon: "mdi:current-dc"
+#     address: 184
+#     unit_of_measurement: "%"
+#     device_class: battery
+#     accuracy_decimals: 0
+#     value_type: U_WORD
+#     icon: "mdi:battery"
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery 2 Power"
-#     id: battery_2_power
+#     name: "Battery Power"
+#     id: battery_power
 #     register_type: holding
-#     address: 595
+#     address: 190
 #     unit_of_measurement: "W"
 #     device_class: power
 #     accuracy_decimals: 0
 #     value_type: S_WORD
-#     disabled_by_default: true
-#     icon: "mdi:lightning-bolt-outline"
+#     icon: "mdi:lightning-bolt"
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery 2 Temperature"
+#     name: "Battery Current"
 #     register_type: holding
-#     address: 596
-#     unit_of_measurement: "°C"
-#     device_class: temperature
-#     accuracy_decimals: 1
+#     address: 191
+#     unit_of_measurement: "A"
+#     device_class: current
+#     accuracy_decimals: 2
 #     filters:
-#       - multiply: 0.1
+#       - multiply: 0.01
+#     value_type: S_WORD
+#     icon: "mdi:current-dc"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery Corrected Capacity"
+# #     id: battery_corrected_capacity
+# #     register_type: holding
+# #     address: 592
+# #     unit_of_measurement: "Ah"
+# #     accuracy_decimals: 0
+# #     value_type: U_WORD
+# #     icon: "mdi:battery"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery BMS Charging Voltage"
+# #     register_type: holding
+# #     address: 210
+# #     unit_of_measurement: "V"
+# #     device_class: voltage
+# #     accuracy_decimals: 2
+# #     filters:
+# #       - multiply: 0.01
+# #     value_type: U_WORD
+# #     icon: "mdi:flash-triangle"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery BMS Discharging Voltage"
+# #     register_type: holding
+# #     address: 211
+# #     unit_of_measurement: "V"
+# #     device_class: voltage
+# #     accuracy_decimals: 2
+# #     filters:
+# #       - multiply: 0.01
+# #     value_type: U_WORD
+# #     icon: "mdi:flash-triangle-outline"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery BMS Charging Current"
+# #     register_type: holding
+# #     address: 212
+# #     unit_of_measurement: "A"
+# #     device_class: current
+# #     accuracy_decimals: 0
+# #     value_type: U_WORD
+# #     icon: "mdi:current-dc"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery BMS Discharging Current"
+# #     register_type: holding
+# #     address: 213
+# #     unit_of_measurement: "A"
+# #     device_class: current
+# #     accuracy_decimals: 0
+# #     value_type: U_WORD
+# #     icon: "mdi:current-dc"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery BMS SOC"
+# #     register_type: holding
+# #     address: 214
+# #     unit_of_measurement: "%"
+# #     accuracy_decimals: 0
+# #     value_type: U_WORD
+# #     icon: "mdi:battery"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery BMS Voltage"
+# #     register_type: holding
+# #     address: 215
+# #     unit_of_measurement: "V"
+# #     device_class: voltage
+# #     accuracy_decimals: 2
+# #     filters:
+# #       - multiply: 0.01
+# #     value_type: U_WORD
+# #     icon: "mdi:sine-wave"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery BMS Current"
+# #     register_type: holding
+# #     address: 216
+# #     unit_of_measurement: "A"
+# #     device_class: current
+# #     accuracy_decimals: 1
+# #     filters:
+# #       - multiply: 0.1
+# #     value_type: S_WORD
+# #     icon: "mdi:current-dc"
+
+#   # - platform: modbus_controller
+#   #   modbus_controller_id: ${modbus_controller_id}
+#   #   name: "Battery BMS Max Charging Current"
+#   #   register_type: holding
+#   #   address: 210
+#   #   unit_of_measurement: "A"
+#   #   device_class: current
+#   #   accuracy_decimals: 0
+#   #   value_type: U_WORD
+#   #   icon: "mdi:current-dc"
+
+#   # - platform: modbus_controller
+#   #   modbus_controller_id: ${modbus_controller_id}
+#   #   name: "Battery BMS Max Discharging Current"
+#   #   register_type: holding
+#   #   address: 211
+#   #   unit_of_measurement: "A"
+#   #   device_class: current
+#   #   accuracy_decimals: 0
+#   #   value_type: U_WORD
+#   #   icon: "mdi:current-dc"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery BMS Other Symbol"
+# #     register_type: holding
+# #     address: 222
+# #     accuracy_decimals: 0
+# #     value_type: U_WORD
+# #     icon: "mdi:battery-unknown"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery 2 Voltage"
+# #     id: battery_2_voltage
+# #     register_type: holding
+# #     address: 593
+# #     unit_of_measurement: "V"
+# #     device_class: voltage
+# #     accuracy_decimals: 2
+# #     filters:
+# #       - multiply: 0.01
+# #     value_type: U_WORD
+# #     disabled_by_default: true
+# #     icon: "mdi:flash-outline"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery 2 Current"
+# #     register_type: holding
+# #     address: 594
+# #     unit_of_measurement: "A"
+# #     device_class: current
+# #     accuracy_decimals: 2
+# #     filters:
+# #       - multiply: 0.01
+# #     value_type: S_WORD
+# #     disabled_by_default: true
+# #     icon: "mdi:current-dc"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery 2 Power"
+# #     id: battery_2_power
+# #     register_type: holding
+# #     address: 595
+# #     unit_of_measurement: "W"
+# #     device_class: power
+# #     accuracy_decimals: 0
+# #     value_type: S_WORD
+# #     disabled_by_default: true
+# #     icon: "mdi:lightning-bolt-outline"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery 2 Temperature"
+# #     register_type: holding
+# #     address: 596
+# #     unit_of_measurement: "°C"
+# #     device_class: temperature
+# #     accuracy_decimals: 1
+# #     filters:
+# #       - multiply: 0.1
+# #     value_type: U_WORD
+# #     disabled_by_default: true
+# #     icon: "mdi:thermometer-lines"
+
+# # binary_sensor:
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery Alarm"
+# #     register_type: holding
+# #     address: 220
+# #     device_class: problem
+# #     entity_category: diagnostic
+# #     icon: "mdi:battery-alert"
+
+# #   - platform: modbus_controller
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery Fault"
+# #     register_type: holding
+# #     address: 221
+# #     device_class: problem
+# #     entity_category: diagnostic
+# #     icon: "mdi:battery-alert-variant"
+
+# select:
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Control Mode"
+#     address: 310
 #     value_type: U_WORD
-#     disabled_by_default: true
-#     icon: "mdi:thermometer-lines"
-
-# binary_sensor:
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery Alarm"
-#     register_type: holding
-#     address: 220
-#     device_class: problem
-#     entity_category: diagnostic
-#     icon: "mdi:battery-alert"
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery Fault"
-#     register_type: holding
-#     address: 221
-#     device_class: problem
-#     entity_category: diagnostic
-#     icon: "mdi:battery-alert-variant"
-
-select:
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Control Mode"
-    address: 310
-    value_type: U_WORD
-    entity_category: config
-    icon: "mdi:battery-sync"
-    optionsmap:
-      "Lead (Deye BMS)": 0
-      "Lithium (External BMS)": 1
-
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Operation Mode"
-    id: battery_operation_mode
-    address: 213
-    value_type: U_WORD
-    entity_category: config
-    icon: "mdi:battery-check"
-    optionsmap:
-      "Voltage": 0
-      "Capacity (%)": 1
-      "No battery": 2
-
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery BMS Type"
-    address: 325
-    value_type: U_WORD
-    icon: "mdi:battery-charging-high"
-    entity_category: config
-    optionsmap:
-      "PYLON": 0
-      "Tianbangda": 1
-      "KOK": 2
-      "Keith": 3
-      "Toppai": 4
-      "Peneng 485": 5
-      "Jeris 485": 6
-      "Sunwoda 485": 7
-      "Xinrui 485": 8
-      "Tianbangda 485": 9
-      "Shenggao Electric CAN": 10
-
-switch:
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Wake Up"
-    register_type: holding
-    address: 214
-    bitmask: 1 # Bit0: Battery 1 wake up (0=enabled, 1=disabled)
-    entity_category: config
-    icon: "mdi:battery-charging"
+#     entity_category: config
+#     icon: "mdi:battery-sync"
+#     optionsmap:
+#       "Lead (Deye BMS)": 0
+#       "Lithium (External BMS)": 1
 
 #   - platform: modbus_controller
 #     use_write_multiple: true
 #     modbus_controller_id: ${modbus_controller_id}
-#     name: "Battery 2 Wake Up"
-#     register_type: holding
-#     address: 112
-#     bitmask: 256 # Bit8: Battery 2 wake up (0=enabled, 1=disabled)
+#     name: "Battery Operation Mode"
+#     id: battery_operation_mode
+#     address: 213
+#     value_type: U_WORD
 #     entity_category: config
-#     disabled_by_default: true
+#     icon: "mdi:battery-check"
+#     optionsmap:
+#       "Voltage": 0
+#       "Capacity (%)": 1
+#       "No battery": 2
+
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery BMS Type"
+#     address: 325
+#     value_type: U_WORD
+#     icon: "mdi:battery-charging-high"
+#     entity_category: config
+#     optionsmap:
+#       "PYLON": 0
+#       "Tianbangda": 1
+#       "KOK": 2
+#       "Keith": 3
+#       "Toppai": 4
+#       "Peneng 485": 5
+#       "Jeris 485": 6
+#       "Sunwoda 485": 7
+#       "Xinrui 485": 8
+#       "Tianbangda 485": 9
+#       "Shenggao Electric CAN": 10
+
+# switch:
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Wake Up"
+#     register_type: holding
+#     address: 214
+#     bitmask: 1 # Bit0: Battery 1 wake up (0=enabled, 1=disabled)
+#     entity_category: config
 #     icon: "mdi:battery-charging"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Generator Charging"
-    register_type: holding
-    address: 231
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:battery"
+# #   - platform: modbus_controller
+# #     use_write_multiple: true
+# #     modbus_controller_id: ${modbus_controller_id}
+# #     name: "Battery 2 Wake Up"
+# #     register_type: holding
+# #     address: 112
+# #     bitmask: 256 # Bit8: Battery 2 wake up (0=enabled, 1=disabled)
+# #     entity_category: config
+# #     disabled_by_default: true
+# #     icon: "mdi:battery-charging"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Grid Charging"
-    register_type: holding
-    address: 232
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Generator Charging"
+#     register_type: holding
+#     address: 231
+#     bitmask: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-number:
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Generator Charging Start Voltage"
-    address: 225
-    unit_of_measurement: "V"
-    device_class: voltage
-    value_type: U_WORD
-    multiply: 100
-    min_value: 0
-    max_value: 63
-    step: 0.01
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Grid Charging"
+#     register_type: holding
+#     address: 232
+#     bitmask: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Generator Charging Start SOC"
-    address: 226
-    unit_of_measurement: "%"
-    value_type: U_WORD
-    min_value: 0
-    max_value: 100
-    step: 1
-    entity_category: config
-    icon: "mdi:battery"
+# number:
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Generator Charging Start Voltage"
+#     address: 225
+#     unit_of_measurement: "V"
+#     device_class: voltage
+#     value_type: U_WORD
+#     multiply: 100
+#     min_value: 0
+#     max_value: 63
+#     step: 0.01
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Generator Charging Current"
-    address: 227
-    unit_of_measurement: "A"
-    device_class: current
-    value_type: U_WORD
-    min_value: 0
-    max_value: 240
-    step: 1
-    entity_category: config
-    icon: "mdi:current-dc"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Generator Charging Start SOC"
+#     address: 226
+#     unit_of_measurement: "%"
+#     value_type: U_WORD
+#     min_value: 0
+#     max_value: 100
+#     step: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Grid Charging Start Voltage"
-    address: 228
-    unit_of_measurement: "V"
-    device_class: voltage
-    value_type: U_WORD
-    multiply: 100
-    min_value: 0
-    max_value: 63
-    step: 0.01
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Generator Charging Current"
+#     address: 227
+#     unit_of_measurement: "A"
+#     device_class: current
+#     value_type: U_WORD
+#     min_value: 0
+#     max_value: 240
+#     step: 1
+#     entity_category: config
+#     icon: "mdi:current-dc"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Grid Charging Start SOC"
-    address: 229
-    unit_of_measurement: "%"
-    value_type: U_WORD
-    min_value: 0
-    max_value: 100
-    step: 1
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Grid Charging Start Voltage"
+#     address: 228
+#     unit_of_measurement: "V"
+#     device_class: voltage
+#     value_type: U_WORD
+#     multiply: 100
+#     min_value: 0
+#     max_value: 63
+#     step: 0.01
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Equalization Cycle"
-    address: 207
-    unit_of_measurement: "d"
-    device_class: duration
-    value_type: U_WORD
-    min_value: 0
-    max_value: 90
-    step: 1
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Grid Charging Start SOC"
+#     address: 229
+#     unit_of_measurement: "%"
+#     value_type: U_WORD
+#     min_value: 0
+#     max_value: 100
+#     step: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Equalization Time"
-    address: 208
-    unit_of_measurement: "h"
-    device_class: duration
-    value_type: U_WORD
-    multiply: 2
-    min_value: 0
-    max_value: 10
-    step: 0.5
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Equalization Cycle"
+#     address: 207
+#     unit_of_measurement: "d"
+#     device_class: duration
+#     value_type: U_WORD
+#     min_value: 0
+#     max_value: 90
+#     step: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Temperature Compensation"
-    address: 209
-    unit_of_measurement: "mV/°C"
-    value_type: S_WORD
-    min_value: 0
-    max_value: 50
-    step: 1
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Equalization Time"
+#     address: 208
+#     unit_of_measurement: "h"
+#     device_class: duration
+#     value_type: U_WORD
+#     multiply: 2
+#     min_value: 0
+#     max_value: 10
+#     step: 0.5
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Resistance"
-    address: 215
-    unit_of_measurement: "mΩ"
-    value_type: U_WORD
-    min_value: 0
-    max_value: 6000
-    step: 1
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Temperature Compensation"
+#     address: 209
+#     unit_of_measurement: "mV/°C"
+#     value_type: S_WORD
+#     min_value: 0
+#     max_value: 50
+#     step: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Charging Efficiency"
-    address: 216
-    unit_of_measurement: "%"
-    value_type: U_WORD
-    multiply: 10
-    min_value: 0
-    max_value: 100
-    step: 0.1
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Resistance"
+#     address: 215
+#     unit_of_measurement: "mΩ"
+#     value_type: U_WORD
+#     min_value: 0
+#     max_value: 6000
+#     step: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Shutdown SOC"
-    address: 217
-    unit_of_measurement: "%"
-    value_type: U_WORD
-    min_value: 0
-    max_value: 100
-    step: 1
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Charging Efficiency"
+#     address: 216
+#     unit_of_measurement: "%"
+#     value_type: U_WORD
+#     multiply: 10
+#     min_value: 0
+#     max_value: 100
+#     step: 0.1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Restart SOC"
-    address: 218
-    unit_of_measurement: "%"
-    value_type: U_WORD
-    min_value: 0
-    max_value: 100
-    step: 1
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Shutdown SOC"
+#     address: 217
+#     unit_of_measurement: "%"
+#     value_type: U_WORD
+#     min_value: 0
+#     max_value: 100
+#     step: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Low SOC"
-    address: 219
-    unit_of_measurement: "%"
-    value_type: U_WORD
-    min_value: 0
-    max_value: 100
-    step: 1
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Restart SOC"
+#     address: 218
+#     unit_of_measurement: "%"
+#     value_type: U_WORD
+#     min_value: 0
+#     max_value: 100
+#     step: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Shutdown Voltage"
-    address: 220
-    unit_of_measurement: "V"
-    device_class: voltage
-    value_type: U_WORD
-    multiply: 100
-    min_value: 38
-    max_value: 61
-    step: 0.01
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Low SOC"
+#     address: 219
+#     unit_of_measurement: "%"
+#     value_type: U_WORD
+#     min_value: 0
+#     max_value: 100
+#     step: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Restart Voltage"
-    address: 221
-    unit_of_measurement: "V"
-    device_class: voltage
-    value_type: U_WORD
-    multiply: 100
-    min_value: 38
-    max_value: 61
-    step: 0.01
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Shutdown Voltage"
+#     address: 220
+#     unit_of_measurement: "V"
+#     device_class: voltage
+#     value_type: U_WORD
+#     multiply: 100
+#     min_value: 38
+#     max_value: 61
+#     step: 0.01
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Low Voltage"
-    address: 222
-    unit_of_measurement: "V"
-    device_class: voltage
-    value_type: U_WORD
-    multiply: 100
-    min_value: 38
-    max_value: 61
-    step: 0.01
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Restart Voltage"
+#     address: 221
+#     unit_of_measurement: "V"
+#     device_class: voltage
+#     value_type: U_WORD
+#     multiply: 100
+#     min_value: 38
+#     max_value: 61
+#     step: 0.01
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Equalization Voltage"
-    address: 201
-    unit_of_measurement: "V"
-    device_class: voltage
-    value_type: U_WORD
-    multiply: 100
-    min_value: 38
-    max_value: 61
-    step: 0.01
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Low Voltage"
+#     address: 222
+#     unit_of_measurement: "V"
+#     device_class: voltage
+#     value_type: U_WORD
+#     multiply: 100
+#     min_value: 38
+#     max_value: 61
+#     step: 0.01
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Absorption Voltage"
-    address: 202
-    unit_of_measurement: "V"
-    device_class: voltage
-    value_type: U_WORD
-    multiply: 100
-    min_value: 38
-    max_value: 61
-    step: 0.01
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Equalization Voltage"
+#     address: 201
+#     unit_of_measurement: "V"
+#     device_class: voltage
+#     value_type: U_WORD
+#     multiply: 100
+#     min_value: 38
+#     max_value: 61
+#     step: 0.01
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Float Voltage"
-    address: 203
-    unit_of_measurement: "V"
-    device_class: voltage
-    value_type: U_WORD
-    multiply: 100
-    min_value: 38
-    max_value: 61
-    step: 0.01
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Absorption Voltage"
+#     address: 202
+#     unit_of_measurement: "V"
+#     device_class: voltage
+#     value_type: U_WORD
+#     multiply: 100
+#     min_value: 38
+#     max_value: 61
+#     step: 0.01
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Capacity"
-    address: 204
-    unit_of_measurement: "Ah"
-    value_type: U_WORD
-    min_value: 0
-    max_value: 2000
-    step: 1
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Float Voltage"
+#     address: 203
+#     unit_of_measurement: "V"
+#     device_class: voltage
+#     value_type: U_WORD
+#     multiply: 100
+#     min_value: 38
+#     max_value: 61
+#     step: 0.01
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Empty Voltage"
-    address: 205
-    unit_of_measurement: "V"
-    device_class: voltage
-    value_type: U_WORD
-    multiply: 100
-    min_value: 38
-    max_value: 61
-    step: 0.01
-    entity_category: config
-    icon: "mdi:battery"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Capacity"
+#     address: 204
+#     unit_of_measurement: "Ah"
+#     value_type: U_WORD
+#     min_value: 0
+#     max_value: 2000
+#     step: 1
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: maximum_battery_charge_current
-    name: "Maximum Battery Charge Current"
-    address: 210
-    unit_of_measurement: A
-    device_class: current
-    entity_category: config
-    value_type: U_WORD
-    icon: "mdi:battery-charging"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Battery Empty Voltage"
+#     address: 205
+#     unit_of_measurement: "V"
+#     device_class: voltage
+#     value_type: U_WORD
+#     multiply: 100
+#     min_value: 38
+#     max_value: 61
+#     step: 0.01
+#     entity_category: config
+#     icon: "mdi:battery"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: maximum_battery_discharge_current
-    name: "Maximum Battery Discharge Current"
-    address: 211
-    unit_of_measurement: A
-    device_class: current
-    entity_category: config
-    value_type: U_WORD
-    icon: "mdi:battery-charging-10"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     id: maximum_battery_charge_current
+#     name: "Maximum Battery Charge Current"
+#     address: 210
+#     unit_of_measurement: A
+#     device_class: current
+#     entity_category: config
+#     value_type: U_WORD
+#     icon: "mdi:battery-charging"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Maximum Battery Grid Charge Current"
-    address: 230
-    unit_of_measurement: A
-    entity_category: config
-    device_class: current
-    value_type: U_WORD
-    icon: "mdi:battery-charging-50"
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     id: maximum_battery_discharge_current
+#     name: "Maximum Battery Discharge Current"
+#     address: 211
+#     unit_of_measurement: A
+#     device_class: current
+#     entity_category: config
+#     value_type: U_WORD
+#     icon: "mdi:battery-charging-10"
+
+#   - platform: modbus_controller
+#     use_write_multiple: true
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "Maximum Battery Grid Charge Current"
+#     address: 230
+#     unit_of_measurement: A
+#     entity_category: config
+#     device_class: current
+#     value_type: U_WORD
+#     icon: "mdi:battery-charging-50"
