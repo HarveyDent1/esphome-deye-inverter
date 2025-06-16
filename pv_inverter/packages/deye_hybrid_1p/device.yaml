@@ -338,29 +338,29 @@ text_sensor:
       char buffer[50];
       snprintf(buffer, sizeof(buffer), "%04X-%04X-%04X", reg14, reg15, reg11);
       return {buffer};
-  - platform: template
-    name: Device HMI Firmware Version
-    update_interval: 600s
-    icon: mdi:chip
-    entity_category: diagnostic
-    lambda: |-
-      auto reg17 = (uint16_t)id(device_comm_firmware_raw_17).state;
-      auto reg18 = (uint16_t)id(device_comm_firmware_raw_18).state;
-      auto reg16 = (uint16_t)id(device_comm_firmware_raw_16).state;
+  # - platform: template
+  #   name: Device HMI Firmware Version
+  #   update_interval: 600s
+  #   icon: mdi:chip
+  #   entity_category: diagnostic
+  #   lambda: |-
+  #     auto reg17 = (uint16_t)id(device_comm_firmware_raw_17).state;
+  #     auto reg18 = (uint16_t)id(device_comm_firmware_raw_18).state;
+  #     auto reg16 = (uint16_t)id(device_comm_firmware_raw_16).state;
 
-      if (isnan(id(device_comm_firmware_raw_17).state) || 
-          isnan(id(device_comm_firmware_raw_18).state) || 
-          isnan(id(device_comm_firmware_raw_16).state)) {
-        return {"N/A"};
-      }
+  #     if (isnan(id(device_comm_firmware_raw_17).state) || 
+  #         isnan(id(device_comm_firmware_raw_18).state) || 
+  #         isnan(id(device_comm_firmware_raw_16).state)) {
+  #       return {"N/A"};
+  #     }
 
-      char buffer[50];
-      if (reg16 == 0) {
-        snprintf(buffer, sizeof(buffer), "%04X-%04X", reg17, reg18);
-      } else {
-        snprintf(buffer, sizeof(buffer), "%04X-%04X-%04X", reg17, reg18, reg16);
-      }
-      return {buffer};
+  #     char buffer[50];
+  #     if (reg16 == 0) {
+  #       snprintf(buffer, sizeof(buffer), "%04X-%04X", reg17, reg18);
+  #     } else {
+  #       snprintf(buffer, sizeof(buffer), "%04X-%04X-%04X", reg17, reg18, reg16);
+  #     }
+  #     return {buffer};
 number: null
 
 
