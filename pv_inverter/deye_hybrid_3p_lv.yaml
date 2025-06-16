@@ -1,7 +1,7 @@
 substitutions:
   name: deye-inverter
   friendly_name: "Deye Inverter"
-  device_description: "Deye Inverter SG0XLP3"
+  device_description: "Deye Inverter SG0XLPX"
   modbus_controller_id: deye_modbus_controller
   # Safe Mode Default parameters
   default_maximum_battery_charge_current: "140" # Amps

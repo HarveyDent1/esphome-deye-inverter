@@ -1,0 +1,47 @@
+sensor:
+  - id: !extend battery_power
+    filters:
+      multiply: 10
+  - id: !extend battery_2_power
+    filters:
+      multiply: 10
+  - id: !extend pv1_power
+    filters:
+      multiply: 10
+  - id: !extend pv2_power
+    filters:
+      multiply: 10
+  - id: !extend pv3_power
+    filters:
+      multiply: 10
+  - id: !extend pv4_power
+    filters:
+      multiply: 10
+  - id: !extend battery_voltage
+    filters:
+      multiply: 0.1
+  - id: !extend battery_2_voltage
+    filters:
+      multiply: 0.1
+
+number:
+  - id: !extend generator_peak_shaving_power
+    multiply: 10
+  - id: !extend grid_peak_shaving_power
+    multiply: 10
+  - id: !extend max_sell_power
+    multiply: 10
+  - id: !extend max_solar_power
+    multiply: 10
+  - id: !extend time_of_use_1_out_power
+    multiply: 10
+  - id: !extend time_of_use_2_out_power
+    multiply: 10
+  - id: !extend time_of_use_3_out_power
+    multiply: 10
+  - id: !extend time_of_use_4_out_power
+    multiply: 10
+  - id: !extend time_of_use_5_out_power
+    multiply: 10
+  - id: !extend time_of_use_6_out_power
+    multiply: 10
