@@ -102,25 +102,25 @@ select:
 #     entity_category: config
 #     icon: "mdi:generator-stationary"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Microinverter Export Cut-off"
-    register_type: holding
-    address: 280
-    bitmask: 0x0000 # bit 0
-    entity_category: config
-    icon: "mdi:solar-panel"
+  # - platform: modbus_controller
+  #   use_write_multiple: true
+  #   modbus_controller_id: ${modbus_controller_id}
+  #   name: "Microinverter Export Cut-off"
+  #   register_type: holding
+  #   address: 280
+  #   bitmask: 0x0000 # bit 0
+  #   entity_category: config
+  #   icon: "mdi:solar-panel"
 
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Generator Peak Shaving Enable"
-    register_type: holding
-    address: 280
-    bitmask: 0x0004 # bit 4
-    entity_category: config
-    icon: "mdi:generator-stationary"
+  # - platform: modbus_controller
+  #   use_write_multiple: true
+  #   modbus_controller_id: ${modbus_controller_id}
+  #   name: "Generator Peak Shaving Enable"
+  #   register_type: holding
+  #   address: 280
+  #   bitmask: 0x0004 # bit 4
+  #   entity_category: config
+  #   icon: "mdi:generator-stationary"
 
 #   - platform: modbus_controller
 #     use_write_multiple: true
