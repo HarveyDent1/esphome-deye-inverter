@@ -409,7 +409,7 @@ switch:
     modbus_controller_id: ${modbus_controller_id}
     name: "Battery Grid Charging"
     register_type: holding
-    address: 231
+    address: 232
     bitmask: 1
     entity_category: config
     icon: "mdi:battery"
