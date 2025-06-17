@@ -1,15 +1,15 @@
-﻿sensor:
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "PV1 Power"
-    id: pv1_power
-    register_type: holding
-    address: 186
-    unit_of_measurement: "W"
-    device_class: power
-    accuracy_decimals: 0
-    value_type: U_WORD
-    icon: "mdi:solar-power-variant"
+﻿# sensor:
+#   - platform: modbus_controller
+#     modbus_controller_id: ${modbus_controller_id}
+#     name: "PV1 Power"
+#     id: pv1_power
+#     register_type: holding
+#     address: 186
+#     unit_of_measurement: "W"
+#     device_class: power
+#     accuracy_decimals: 0
+#     value_type: U_WORD
+#     icon: "mdi:solar-power-variant"
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}

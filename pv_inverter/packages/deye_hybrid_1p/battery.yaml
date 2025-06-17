@@ -1,18 +1,18 @@
 sensor:
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Daily Battery Charge"
-    id: daily_battery_charge
-    register_type: holding
-    address: 70
-    unit_of_measurement: "kWh"
-    device_class: energy
-    state_class: "total_increasing"
-    accuracy_decimals: 1
-    filters:
-      - multiply: 0.1
-    value_type: U_WORD
-    icon: "mdi:battery-charging"
+  # - platform: modbus_controller
+  #   modbus_controller_id: ${modbus_controller_id}
+  #   name: "Daily Battery Charge"
+  #   id: daily_battery_charge
+  #   register_type: holding
+  #   address: 70
+  #   unit_of_measurement: "kWh"
+  #   device_class: energy
+  #   state_class: "total_increasing"
+  #   accuracy_decimals: 1
+  #   filters:
+  #     - multiply: 0.1
+  #   value_type: U_WORD
+  #   icon: "mdi:battery-charging"
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
@@ -325,17 +325,17 @@ sensor:
 # #     icon: "mdi:battery-alert-variant"
 
 select:
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Control Mode"
-    address: 310
-    value_type: U_WORD
-    entity_category: config
-    icon: "mdi:battery-sync"
-    optionsmap:
-      "Lead (Deye BMS)": 0
-      "Lithium (External BMS)": 1
+  # - platform: modbus_controller
+  #   use_write_multiple: true
+  #   modbus_controller_id: ${modbus_controller_id}
+  #   name: "Battery Control Mode"
+  #   address: 310
+  #   value_type: U_WORD
+  #   entity_category: config
+  #   icon: "mdi:battery-sync"
+  #   optionsmap:
+  #     "Lead (Deye BMS)": 0
+  #     "Lithium (External BMS)": 1
 
 #   - platform: modbus_controller
 #     use_write_multiple: true
@@ -373,15 +373,15 @@ select:
 #       "Shenggao Electric CAN": 10
 
 switch:
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Wake Up"
-    register_type: holding
-    address: 214
-    bitmask: 1 # Bit0: Battery 1 wake up (0=enabled, 1=disabled)
-    entity_category: config
-    icon: "mdi:battery-charging"
+  # - platform: modbus_controller
+  #   use_write_multiple: true
+  #   modbus_controller_id: ${modbus_controller_id}
+  #   name: "Battery Wake Up"
+  #   register_type: holding
+  #   address: 214
+  #   bitmask: 1 # Bit0: Battery 1 wake up (0=enabled, 1=disabled)
+  #   entity_category: config
+  #   icon: "mdi:battery-charging"
 
 # #   - platform: modbus_controller
 # #     use_write_multiple: true
@@ -415,20 +415,20 @@ switch:
 #     icon: "mdi:battery"
 
 number:
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Generator Charging Start Voltage"
-    address: 225
-    unit_of_measurement: "V"
-    device_class: voltage
-    value_type: U_WORD
-    multiply: 100
-    min_value: 0
-    max_value: 63
-    step: 0.01
-    entity_category: config
-    icon: "mdi:battery"
+  # - platform: modbus_controller
+  #   use_write_multiple: true
+  #   modbus_controller_id: ${modbus_controller_id}
+  #   name: "Battery Generator Charging Start Voltage"
+  #   address: 225
+  #   unit_of_measurement: "V"
+  #   device_class: voltage
+  #   value_type: U_WORD
+  #   multiply: 100
+  #   min_value: 0
+  #   max_value: 63
+  #   step: 0.01
+  #   entity_category: config
+  #   icon: "mdi:battery"
 
 #   - platform: modbus_controller
 #     use_write_multiple: true
