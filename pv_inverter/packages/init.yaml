@@ -38,9 +38,11 @@ wifi:
 
 captive_portal:
 
+captive_portal:
+
 uart:
   id: modbus_uart
-  baud_rate: 96000
+  baud_rate: 9600 #19200
   stop_bits: 1
 
 modbus:
@@ -52,6 +54,9 @@ modbus_controller:
     address: ${modbus_inverter_address}
     modbus_id: modbus_1
     setup_priority: -10
+    update_interval: 5s
+    command_throttle: 60ms
+    offline_skip_updates: 3
     update_interval: 5s
     command_throttle: 60ms
     offline_skip_updates: 3
