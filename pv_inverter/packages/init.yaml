@@ -42,8 +42,8 @@ captive_portal:
 
 uart:
   id: modbus_uart
-  baud_rate: 9600 #19200
-  stop_bits: 1
+  # baud_rate: 9600 #19200
+  # stop_bits: 1
 
 modbus:
   id: modbus_1
