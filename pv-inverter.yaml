@@ -31,8 +31,8 @@ esp32:
 
 uart:
   # Default TX and RX pins, if TTL converter is connected differently, set appropriate pins
-  tx_pin: GPIO17
-  rx_pin: GPIO16
+  tx_pin: GPIO17 # PASS
+  rx_pin: GPIO16 # PASS
 
 modbus:
 #  flow_control_pin: GPIO4 # Uncomment and set appropriate pin if your TTL converter requires it

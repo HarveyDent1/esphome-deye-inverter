@@ -38,25 +38,20 @@ wifi:
 
 captive_portal:
 
-captive_portal:
-
 uart:
-  id: modbus_uart
-  # baud_rate: 9600 #19200
-  # stop_bits: 1
+  id: modbus_uart # PASS
+  baud_rate: 9600 #19200 for Deye 3P # PASS
+  stop_bits: 1 # PASS
 
 modbus:
-  id: modbus_1
-  uart_id: modbus_uart
+  id: modbus_1 # PASS
+  uart_id: modbus_uart ###### ?
 
 modbus_controller:
-  - id: ${modbus_controller_id}
-    address: ${modbus_inverter_address}
-    modbus_id: modbus_1
-    setup_priority: -10
-    update_interval: 5s
-    command_throttle: 60ms
-    offline_skip_updates: 3
-    update_interval: 5s
-    command_throttle: 60ms
+  - id: ${modbus_controller_id} #PASS
+    address: ${modbus_inverter_address} # PASS
+    modbus_id: modbus_1 # PASS
+    setup_priority: -10 #PASS
+    update_interval: 5s #15 #PASS
+    command_throttle: 60ms #50ms # PASS
     offline_skip_updates: 3
