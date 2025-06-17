@@ -8,10 +8,6 @@ substitutions:
   default_max_sell_power: "6000" # Watts
   default_system_work_mode: "Zero Export To Load" # "Selling First", "Zero Export To Load", "Zero Export To CT"
   default_solar_sell: "on" # "on", "off"
-  
-  uart:
-   baud_rate: 9600
-
 
 packages:
   init: !include packages/init.yaml
