@@ -1,58 +1,58 @@
-# sensor:
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Daily Generator Production"
-#     id: daily_generator_production
-#     register_type: holding
-#     address: 62
-#     unit_of_measurement: "kWh"
-#     device_class: energy
-#     state_class: "total_increasing"
-#     accuracy_decimals: 1
-#     filters:
-#       - multiply: 0.1
-#     value_type: U_WORD
-#     icon: "mdi:generator-portable"
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Daily Generator Production"
+    id: daily_generator_production
+    register_type: holding
+    address: 62
+    unit_of_measurement: "kWh"
+    device_class: energy
+    state_class: "total_increasing"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+    icon: "mdi:generator-portable"
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Total Generator Production"
-#     id: total_generator_production
-#     register_type: holding
-#     address: 92
-#     unit_of_measurement: "kWh"
-#     device_class: energy
-#     state_class: "total_increasing"
-#     accuracy_decimals: 1
-#     value_type: U_DWORD_R
-#     filters:
-#       - multiply: 0.1
-#     icon: "mdi:generator-stationary"
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Total Generator Production"
+    id: total_generator_production
+    register_type: holding
+    address: 92
+    unit_of_measurement: "kWh"
+    device_class: energy
+    state_class: "total_increasing"
+    accuracy_decimals: 1
+    value_type: U_DWORD_R
+    filters:
+      - multiply: 0.1
+    icon: "mdi:generator-stationary"
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Generator L1 Voltage"
-#     id: generator_l1_voltage
-#     register_type: holding
-#     address: 181
-#     unit_of_measurement: "V"
-#     device_class: voltage
-#     accuracy_decimals: 1
-#     filters:
-#       - multiply: 0.1
-#     value_type: U_WORD
-#     icon: "mdi:lightning-bolt"
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Generator L1 Voltage"
+    id: generator_l1_voltage
+    register_type: holding
+    address: 181
+    unit_of_measurement: "V"
+    device_class: voltage
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+    icon: "mdi:lightning-bolt"
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Generator L1 Power"
-#     register_type: holding
-#     address: 196
-#     unit_of_measurement: "W"
-#     device_class: power
-#     accuracy_decimals: 0
-#     value_type: S_WORD
-#     icon: "mdi:engine"
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Generator L1 Power"
+    register_type: holding
+    address: 196
+    unit_of_measurement: "W"
+    device_class: power
+    accuracy_decimals: 0
+    value_type: S_WORD
+    icon: "mdi:engine"
 
 
 # #   - platform: modbus_controller
