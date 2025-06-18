@@ -31,6 +31,12 @@ ota:
 wifi:
   ssid: ${wifi_ssid}
   password: ${wifi_password}
+  manual_ip:
+    static_ip: 172.16.20.24
+    gateway: 172.16.20.1
+    subnet: 255.255.255.0
+    dns1: 172.16.1.2
+    dns2: 172.16.1.1
 
   ap:
     ssid: "${friendly_name} Fallback Hotspot"
