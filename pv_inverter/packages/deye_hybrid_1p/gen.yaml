@@ -77,19 +77,19 @@ sensor:
 #     device_class: power
 #     icon: "mdi:generator-stationary"
 
-# select:
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "Generator Port Use"
-#     address: 235
-#     value_type: U_WORD
-#     entity_category: config
-#     icon: "mdi:connection"
-#     optionsmap:
-#       "Generator Input": 0
-#       "SmartLoad Output": 1
-#       "Micro Inverter Input": 2
+select:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: "Generator Port Use"
+    address: 235
+    value_type: U_WORD
+    entity_category: config
+    icon: "mdi:connection"
+    optionsmap:
+      "Generator Input": 0
+      "SmartLoad Output": 1
+      "Micro Inverter Input": 2
 
 # # switch:
 # #   - platform: modbus_controller
@@ -132,62 +132,62 @@ sensor:
 # #     entity_category: config
 # #     icon: "mdi:generator-stationary"
 
-# number:
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "SmartLoad Off Voltage"
-#     address: 236
-#     unit_of_measurement: "V"
-#     device_class: voltage
-#     value_type: U_WORD
-#     multiply: 100
-#     min_value: 38
-#     max_value: 63
-#     step: 0.01
-#     entity_category: config
-#     icon: "mdi:lightning-bolt-circle"
+number:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: "SmartLoad Off Voltage"
+    address: 236
+    unit_of_measurement: "V"
+    device_class: voltage
+    value_type: U_WORD
+    multiply: 100
+    min_value: 38
+    max_value: 63
+    step: 0.01
+    entity_category: config
+    icon: "mdi:lightning-bolt-circle"
 
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "SmartLoad Off SOC"
-#     address: 237
-#     unit_of_measurement: "%"
-#     value_type: U_WORD
-#     min_value: 0
-#     max_value: 100
-#     step: 1
-#     entity_category: config
-#     icon: "mdi:lightning-bolt-circle"
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: "SmartLoad Off SOC"
+    address: 237
+    unit_of_measurement: "%"
+    value_type: U_WORD
+    min_value: 0
+    max_value: 100
+    step: 1
+    entity_category: config
+    icon: "mdi:lightning-bolt-circle"
 
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "SmartLoad On Voltage"
-#     address: 238
-#     unit_of_measurement: "V"
-#     device_class: voltage
-#     value_type: U_WORD
-#     multiply: 100
-#     min_value: 38
-#     max_value: 63
-#     step: 0.01
-#     entity_category: config
-#     icon: "mdi:lightning-bolt-circle"
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: "SmartLoad On Voltage"
+    address: 238
+    unit_of_measurement: "V"
+    device_class: voltage
+    value_type: U_WORD
+    multiply: 100
+    min_value: 38
+    max_value: 63
+    step: 0.01
+    entity_category: config
+    icon: "mdi:lightning-bolt-circle"
 
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "SmartLoad On SOC"
-#     address: 239
-#     unit_of_measurement: "%"
-#     value_type: U_WORD
-#     min_value: 0
-#     max_value: 100
-#     step: 1
-#     entity_category: config
-#     icon: "mdi:lightning-bolt-circle"
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: "SmartLoad On SOC"
+    address: 239
+    unit_of_measurement: "%"
+    value_type: U_WORD
+    min_value: 0
+    max_value: 100
+    step: 1
+    entity_category: config
+    icon: "mdi:lightning-bolt-circle"
 
 #   - platform: modbus_controller
 #     use_write_multiple: true
