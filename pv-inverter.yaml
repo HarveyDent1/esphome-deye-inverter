@@ -16,7 +16,7 @@ substitutions:
     dns2: 172.16.1.1
   ap:
     ssid: "${friendly_name} Fallback Hotspot"
-    password: ${fallback_password}}
+    password: ${fallback_password}
 
   modbus_inverter_address: "0x01" # Default Modbus address, should be changed to match inverter settings
 
