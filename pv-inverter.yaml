@@ -5,7 +5,7 @@ substitutions:
   ota_password: !secret pv_inverter_ota_password
   fallback_password: !secret pv_inverter_fallback_password
 
-  wifi: 
+wifi:
   ssid: ${wifi_ssid}
   password: ${wifi_password}
   manual_ip: ## Set if you need static IP. Microtic routers needs it
