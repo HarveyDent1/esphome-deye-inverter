@@ -5,35 +5,23 @@ substitutions:
   ota_password: !secret pv_inverter_ota_password
   fallback_password: !secret pv_inverter_fallback_password
 
-wifi:
-  ssid: ${wifi_ssid}
-  password: ${wifi_password}
-  manual_ip: ## Set if you need static IP. Microtic routers needs it
-    static_ip: 172.16.20.30
-    gateway: 172.16.20.1
-    subnet: 255.255.255.0
-    dns1: 172.16.1.2
-    dns2: 172.16.1.1
-  ap:
-    ssid: "${friendly_name} Fallback Hotspot"
-    password: ${fallback_password}
-
   modbus_inverter_address: "0x01" # Default Modbus address, should be changed to match inverter settings
+  modbus_controller_id: "deye_modbus"
 
   # Safe Mode parameters for supported inverters
-  safe_mode_delay: 600s # Time after which transition to safe mode and setting default operating parameters will occur
+  safe_mode_delay: "600s" # Time after which transition to safe mode and setting default operating parameters will occur
   default_maximum_battery_charge_current: "140" # Amps
-  default_max_sell_power: "12000" # Watts
+  default_max_sell_power: "12000" # Watts set as in your inverter 
   default_system_work_mode: "Zero Export To Load" # "Selling First", "Zero Export To Load", "Zero Export To CT"
   default_solar_sell: "on" # "on", "off"
 
 packages:
   pv_inverter:
     url: https://github.com/HarveyDent1/esphome-deye-inverter
-    refresh: 12h
+    refresh: 0h
     files:
-      # pv_inverter/deye_hybrid_1p_lv.yaml # SG0XLP1 Low Voltage
-      pv_inverter/deye_hybrid_3p_lv.yaml # SG0XLP3 Low Voltage
+      pv_inverter/deye_hybrid_1p_lv.yaml # SG0XLP1 Low Voltage
+      # pv_inverter/deye_hybrid_3p_lv.yaml # SG0XLP3 Low Voltage
       # pv_inverter/deye_hybrid_3p_hv.yaml # SG0XHP3 High Voltage
 
 # Set appropriately if using a different board. https://esphome.io/components/#supported-microcontrollers
@@ -42,13 +30,26 @@ esp32:
   framework:
     type: arduino
 
+# WiFi credentials
+wifi:
+  ssid: ${wifi_ssid}
+  password: ${wifi_password}
+  # manual_ip: ## Set if you need static IP. Microtic routers needs it
+  #   static_ip: x.x.x.x 
+  #   gateway: x.x.x.x
+  #   subnet: x.x.x.x
+  #   dns1: x.x.x.x
+  #   dns2: x.x.x.x
+  ap:
+    ssid: "${friendly_name} Fallback Hotspot"
+    password: ${fallback_password
+
 uart:
   # Default TX and RX pins, if TTL converter is connected differently, set appropriate pins
   tx_pin: GPIO17 
   rx_pin: GPIO16
+  baud_rate: 9600 #for Deye 1P
+  # baud_rate: 19200 #for Deye 3P
 
 modbus:
 #  flow_control_pin: GPIO4 # Uncomment and set appropriate pin if your TTL converter requires it
-
-# logger:
-#  level: VERBOSE
