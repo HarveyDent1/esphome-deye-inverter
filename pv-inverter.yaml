@@ -23,19 +23,6 @@ packages:
       pv_inverter/deye_hybrid_3p_lv.yaml # SG0XLP3 Low Voltage
       # pv_inverter/deye_hybrid_3p_hv.yaml # SG0XHP3 High Voltage
 
-wifi:
-  ssid: ${wifi_ssid}
-  password: ${wifi_password}
-  # manual_ip: ## Set if you need static IP. Microtic routers needs it
-  #   static_ip: IP_ADRESS
-  #   gateway: GATEWAY_IP_ADRESS
-  #   subnet: SUBENT_MASK
-  #   dns1: DNS_IP
-  #   dns2: DNS_IP
-  ap:
-    ssid: "${friendly_name} Fallback Hotspot"
-    password: ${fallback_password}
-
 # Set appropriately if using a different board. https://esphome.io/components/#supported-microcontrollers
 esp32:
   board: esp32dev
