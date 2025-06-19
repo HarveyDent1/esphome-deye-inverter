@@ -42,7 +42,7 @@ wifi:
   #   dns2: x.x.x.x
   ap:
     ssid: "${friendly_name} Fallback Hotspot"
-    password: ${fallback_password
+    password: ${fallback_password}
 
 uart:
   # Default TX and RX pins, if TTL converter is connected differently, set appropriate pins
