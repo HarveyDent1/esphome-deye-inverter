@@ -149,6 +149,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "Battery BMS Charging Voltage"
+    id: battery_bms_charging_voltage
     register_type: holding
     address: 210
     unit_of_measurement: "V"
@@ -162,6 +163,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "Battery BMS Discharging Voltage"
+    id: battery_bms_discharging_voltage
     register_type: holding
     address: 211
     unit_of_measurement: "V"
@@ -207,6 +209,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "Battery BMS Voltage"
+    id: battery_bms_voltage
     register_type: holding
     address: 215
     unit_of_measurement: "V"
@@ -224,9 +227,6 @@ sensor:
     address: 216
     unit_of_measurement: "A"
     device_class: current
-    accuracy_decimals: 1
-    filters:
-      - multiply: 0.1
     accuracy_decimals: 0
     value_type: S_WORD
     icon: "mdi:current-dc"
