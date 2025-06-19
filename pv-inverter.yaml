@@ -14,6 +14,15 @@ substitutions:
   default_system_work_mode: "Zero Export To Load" # "Selling First", "Zero Export To Load", "Zero Export To CT"
   default_solar_sell: "on" # "on", "off"
 
+packages:
+  pv_inverter:
+    url: https://github.com/HarveyDent1/esphome-deye-inverter
+    refresh: 12h
+    files:
+      # pv_inverter/deye_hybrid_1p_lv.yaml # SG0XLP1 Low Voltage
+      pv_inverter/deye_hybrid_3p_lv.yaml # SG0XLP3 Low Voltage
+      # pv_inverter/deye_hybrid_3p_hv.yaml # SG0XHP3 High Voltage
+
 wifi:
   ssid: ${wifi_ssid}
   password: ${wifi_password}
@@ -26,15 +35,6 @@ wifi:
   ap:
     ssid: "${friendly_name} Fallback Hotspot"
     password: ${fallback_password}
-
-packages:
-  pv_inverter:
-    url: https://github.com/HarveyDent1/esphome-deye-inverter
-    refresh: 12h
-    files:
-      # pv_inverter/deye_hybrid_1p_lv.yaml # SG0XLP1 Low Voltage
-      pv_inverter/deye_hybrid_3p_lv.yaml # SG0XLP3 Low Voltage
-      # pv_inverter/deye_hybrid_3p_hv.yaml # SG0XHP3 High Voltage
 
 # Set appropriately if using a different board. https://esphome.io/components/#supported-microcontrollers
 esp32:
