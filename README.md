@@ -1,4 +1,4 @@
-# ESPHome PV Inverter
+# ESPHome Deye Inverters
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2025?style=for-the-badge)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/lewa-reka/esphome-pv-inverter/build-ci.yaml?style=for-the-badge)
@@ -6,25 +6,28 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/lewa-reka/esphome-pv-inverter?style=for-the-badge)
 
 An ESPHome-based solution for monitoring and controlling photovoltaic inverters via Modbus RTU communication. This project provides comprehensive integration with Home Assistant, enabling real-time monitoring and control of solar power systems.
+In my fork I have added support for Deye 1 phase inverters. I rebuilt the pv-inverter.yaml and init.yaml so that the key parameters for correct operation are in the main configuration file.
 
-Installation & Presentation: https://youtu.be/iJjsA_MzmnE [PL]
+Installation & Presentation on Lewa Reka YT chanel : https://youtu.be/iJjsA_MzmnE [PL]
 
 ## 📋 Currently Supported Inverters
 
 - **Deye SG04LP3** (Low Voltage)
 - **Deye SG05LP3** (Low Voltage)
+- **Deye SG05LP1** (Low Voltage)
 - **Deye SG01HP3** (High Voltage)
 - **Deye SG02HP3** (High Voltage)
 
 #### Deye Inverter Configuration
 
-**Recommended baud rate: 19200**
+**Recommended baud rate: 19200 for 3P version and 9600 fo 1P version**
 
 To set the baud rate on your Deye inverter:
 1. Navigate to: **Advanced Settings** → **Paral. Set 3** → **Boud Rate**
 2. Set the value to **19200**
 3. Save the settings
 
+In 1Phase version 
 **Note**: After saving, the screen will turn off and a red LED alarm will flash - this is normal behavior. Everything should return to normal after a moment.
 
 ## 🚀 Features
