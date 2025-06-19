@@ -4,7 +4,7 @@
   comment: "${device_description} by Lewa-Reka & HarveyDent https://github.com/HarveyDent1/esphome-deye-inverter"
   project:
     name: "lewa-reka-hervey-dent.esphome-pv-inverter"
-    version: "0.2.2"
+    version: "0.3.0"
 
 logger:
   level: WARN
@@ -28,36 +28,31 @@ ota:
   - platform: esphome
     password: ${ota_password}
 
-wifi:
-  ssid: ${wifi_ssid}
-  password: ${wifi_password}
-  manual_ip:
-    static_ip: 172.16.20.24
-    gateway: 172.16.20.1
-    subnet: 255.255.255.0
-    dns1: 172.16.1.2
-    dns2: 172.16.1.1
+# wifi:
+#   ssid: ${wifi_ssid}
+#   password: ${wifi_password}
 
-  ap:
-    ssid: "${friendly_name} Fallback Hotspot"
-    password: ${fallback_password}
+#   ap:
+#     ssid: "${friendly_name} Fallback Hotspot"
+#     password: ${fallback_password}
 
 captive_portal:
 
 uart:
-  id: modbus_uart # PASS
-  baud_rate: 9600 #19200 for Deye 3P # PASS
-  stop_bits: 1 # PASS
+  id: modbus_uart 
+  baud_rate: 9600 #for Deye 1P
+  # baud_rate: 19200 #for Deye 3P
+  stop_bits: 1
 
 modbus:
-  id: modbus_1 # PASS
-  uart_id: modbus_uart ###### ?
+  id: modbus_1
+  uart_id: modbus_uart ?
 
 modbus_controller:
-  - id: ${modbus_controller_id} #PASS
-    address: ${modbus_inverter_address} # PASS
-    modbus_id: modbus_1 # PASS
-    setup_priority: -10 #PASS
-    update_interval: 5s #15 #PASS
-    command_throttle: 60ms #50ms # PASS
+  - id: ${modbus_controller_id} 
+    address: ${modbus_inverter_address}
+    modbus_id: modbus_1 
+    setup_priority: -10 
+    update_interval: 5s 
+    command_throttle: 60ms
     offline_skip_updates: 3

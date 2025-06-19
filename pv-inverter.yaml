@@ -14,6 +14,19 @@ substitutions:
   default_system_work_mode: "Zero Export To Load" # "Selling First", "Zero Export To Load", "Zero Export To CT"
   default_solar_sell: "on" # "on", "off"
 
+wifi:
+  ssid: ${wifi_ssid}
+  password: ${wifi_password}
+  # manual_ip: ## Set if you need static IP. Microtic routers needs it
+  #   static_ip: IP_ADRESS
+  #   gateway: GATEWAY_IP_ADRESS
+  #   subnet: SUBENT_MASK
+  #   dns1: DNS_IP
+  #   dns2: DNS_IP
+  ap:
+    ssid: "${friendly_name} Fallback Hotspot"
+    password: ${fallback_password}
+
 packages:
   pv_inverter:
     url: https://github.com/HarveyDent1/esphome-deye-inverter
@@ -31,8 +44,8 @@ esp32:
 
 uart:
   # Default TX and RX pins, if TTL converter is connected differently, set appropriate pins
-  tx_pin: GPIO17 # PASS
-  rx_pin: GPIO16 # PASS
+  tx_pin: GPIO17 
+  rx_pin: GPIO16
 
 modbus:
 #  flow_control_pin: GPIO4 # Uncomment and set appropriate pin if your TTL converter requires it
