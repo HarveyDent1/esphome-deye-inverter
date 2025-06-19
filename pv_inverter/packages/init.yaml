@@ -51,7 +51,7 @@ uart:
 
 modbus:
   id: modbus_1
-  uart_id: modbus_uart ?
+  uart_id: modbus_uart
 
 modbus_controller:
   - id: ${modbus_controller_id} 
