@@ -5,6 +5,19 @@ substitutions:
   ota_password: !secret pv_inverter_ota_password
   fallback_password: !secret pv_inverter_fallback_password
 
+  wifi: 
+  ssid: ${wifi_ssid}
+  password: ${wifi_password}
+  manual_ip: ## Set if you need static IP. Microtic routers needs it
+    static_ip: 172.16.20.30
+    gateway: 172.16.20.1
+    subnet: 255.255.255.0
+    dns1: 172.16.1.2
+    dns2: 172.16.1.1
+  ap:
+    ssid: "${friendly_name} Fallback Hotspot"
+    password: ${fallback_password}}
+
   modbus_inverter_address: "0x01" # Default Modbus address, should be changed to match inverter settings
 
   # Safe Mode parameters for supported inverters
