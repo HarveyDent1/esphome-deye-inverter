@@ -28,24 +28,11 @@ ota:
   - platform: esphome
     password: ${ota_password}
 
-# wifi:
-#   ssid: ${wifi_ssid}
-#   password: ${wifi_password}
-#   manual_ip: ## Set if you need static IP. Microtic routers needs it
-#     static_ip: 172.16.20.30
-#     gateway: 172.16.20.1
-#     subnet: 255.255.255.0
-#     dns1: 172.16.1.2
-#     dns2: 172.16.1.1
-#   ap:
-#     ssid: "${friendly_name} Fallback Hotspot"
-#     password: ${fallback_password}}
-
 captive_portal:
 
 uart:
   id: modbus_uart 
-  baud_rate: 9600 #for Deye 1P
+  # baud_rate: 9600 #for Deye 1P
   # baud_rate: 19200 #for Deye 3P
   stop_bits: 1
 
