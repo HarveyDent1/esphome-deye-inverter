@@ -32,8 +32,6 @@ captive_portal:
 
 uart:
   id: modbus_uart 
-  # baud_rate: 9600 #for Deye 1P
-  # baud_rate: 19200 #for Deye 3P
   stop_bits: 1
 
 modbus:
