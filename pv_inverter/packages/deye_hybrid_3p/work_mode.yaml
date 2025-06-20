@@ -75,6 +75,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "Zero Export Power"
+    id: zero_export_power
     address: 104
     unit_of_measurement: "W"
     device_class: power
