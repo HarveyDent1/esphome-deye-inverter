@@ -117,14 +117,3 @@
     filters:
       - multiply: 0.1
     icon: "mdi:solar-power"
-
-# switch:
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: "MPPT Multi-point Scanning"
-#     register_type: holding
-#     address: 341
-#     bitmask: 0x0004
-#     entity_category: config
-#     icon: "mdi:solar-power-variant-outline"
