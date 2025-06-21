@@ -6,8 +6,8 @@
     name: "lewa-reka-hervey-dent.esphome-pv-inverter"
     version: "0.3.0"
 
-# logger:
-#   level: WARN
+logger:
+  level: WARN
 
 api:
   encryption:
