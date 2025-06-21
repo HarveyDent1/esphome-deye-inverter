@@ -405,7 +405,7 @@ switch:
 
 
 
-sensor:
+# sensor:
 # #   - platform: modbus_controller
 # #     modbus_controller_id: ${modbus_controller_id}
 # #     name: "Inverter Date Time Raw 1"
@@ -629,7 +629,7 @@ sensor:
 # #     entity_category: config
 # #     icon: "mdi:toggle-switch"
 
-# # text_sensor:
+text_sensor:
 # # #   - platform: modbus_controller
 # # #     modbus_controller_id: ${modbus_controller_id}
 # # #     bitmask: 0
