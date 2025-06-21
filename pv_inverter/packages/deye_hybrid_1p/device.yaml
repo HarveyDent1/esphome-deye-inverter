@@ -102,39 +102,6 @@ text_sensor:
       }
       return x;
 
-  - platform: template
-    name: Device Date Time
-    update_interval: 10s
-    icon: mdi:clock
-    entity_category: diagnostic
-    lambda: |-
-      auto raw1 = (uint16_t)id(inverter_datetime_raw1).state;
-      auto raw2 = (uint16_t)id(inverter_datetime_raw2).state;
-      auto raw3 = (uint16_t)id(inverter_datetime_raw3).state;
-
-      if (isnan(id(inverter_datetime_raw1).state) || 
-          isnan(id(inverter_datetime_raw2).state) || 
-          isnan(id(inverter_datetime_raw3).state)) {
-        return {"N/A"};
-      }
-
-      int year = 2000 + ((raw1 >> 8) & 0xFF);
-      int month = raw1 & 0xFF;
-      int day = (raw2 >> 8) & 0xFF;
-      int hour = raw2 & 0xFF;
-      int minute = (raw3 >> 8) & 0xFF;
-      int second = raw3 & 0xFF;
-
-      if (month < 1 || month > 12 || day < 1 || day > 31 || 
-          hour > 23 || minute > 59 || second > 59) {
-        return {"Invalid"};
-      }
-
-      char buffer[20];
-      snprintf(buffer, sizeof(buffer), "%04d-%02d-%02d %02d:%02d:%02d", 
-              year, month, day, hour, minute, second);
-      return {buffer};
-
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
 #     name: Device Type
