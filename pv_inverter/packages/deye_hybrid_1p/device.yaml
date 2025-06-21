@@ -969,119 +969,66 @@ text_sensor:
 # #       snprintf(buffer, sizeof(buffer), "%04X-%04X-%04X", reg14, reg15, reg11);
 # #       return {buffer};
 
-# #   - platform: template
-# #     name: "Device HMI Firmware Version"
-# #     update_interval: 600s
-# #     icon: "mdi:chip"
-# #     entity_category: diagnostic
-# #     lambda: |-
-# #       auto reg17 = (uint16_t)id(device_comm_firmware_raw_17).state;
-# #       auto reg18 = (uint16_t)id(device_comm_firmware_raw_18).state;
-# #       auto reg16 = (uint16_t)id(device_comm_firmware_raw_16).state;
+  # - platform: modbus_controller
+  #   modbus_controller_id: ${modbus_controller_id}
+  #   name: "Device Alarm"
+  #   register_type: holding
+  #   entity_category: diagnostic
+  #   address: 101
+  #   response_size: 4
+  #   bitmask: 0
+  #   raw_encode: NONE
+  #   icon: "mdi:alert-outline"
+  #   lambda: |-
+  #     if (x.size() < 4) return std::string("N/A");
 
-# #       if (isnan(id(device_comm_firmware_raw_17).state) || 
-# #           isnan(id(device_comm_firmware_raw_18).state) || 
-# #           isnan(id(device_comm_firmware_raw_16).state)) {
-# #         return {"N/A"};
-# #       }
+  #     uint16_t word1 = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
+  #     uint16_t word2 = ((uint16_t)(uint8_t)x[2] << 8) | (uint8_t)x[3];
+  #     uint32_t value = ((uint32_t)word2 << 16) | word1;
 
-# #       char buffer[50];
-# #       if (reg16 == 0) {
-# #         snprintf(buffer, sizeof(buffer), "%04X-%04X", reg17, reg18);
-# #       } else {
-# #         snprintf(buffer, sizeof(buffer), "%04X-%04X-%04X", reg17, reg18, reg16);
-# #       }
-# #       return {buffer};
+  #     if (value == 0) return std::string("OK");
 
-# # #   - platform: modbus_controller
-# # #     modbus_controller_id: ${modbus_controller_id}
-# # #     name: "Device Relay"
-# # #     register_type: holding
-# # #     entity_category: diagnostic
-# # #     address: 552
-# # #     bitmask: 0
-# # #     raw_encode: HEXBYTES
-# # #     icon: "mdi:directions-fork"
-# # #     lambda: |-
-# # #       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
-# # #       switch (value) {
-# # #         case 0x0000: return std::string("Off");
-# # #         case 0x0001:
-# # #         case 0x0003: return std::string("Inverter");
-# # #         case 0x0004:
-# # #         case 0x0006: return std::string("Grid");
-# # #         case 0x0005:
-# # #         case 0x0007: return std::string("Inverter-Grid");
-# # #         case 0x0008: return std::string("Generator");
-# # #         case 0x0009:
-# # #         case 0x000B: return std::string("Inverter-Gen");
-# # #         case 0x000C:
-# # #         case 0x000E: return std::string("Grid-Generator");
-# # #         case 0x000D:
-# # #         case 0x000F: return std::string("Inv-Grid-Gen");
-# # #         default: return std::string("Power Supply");
-# # #       }
+  #     if (value & (1UL << 1)) return std::string("Fan failure");
+  #     if (value & (1UL << 2)) return std::string("Grid phase failure");
+  #     if (value & (1UL << 3)) return std::string("Meter communication failure");
+  #     if (value & (1UL << 30)) return std::string("Battery loss");
+  #     if (value & (1UL << 31)) return std::string("Parallel communication quality");
 
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Device Alarm"
-    register_type: holding
-    entity_category: diagnostic
-    address: 101
-    response_size: 4
-    bitmask: 0
-    raw_encode: NONE
-    icon: "mdi:alert-outline"
-    lambda: |-
-      if (x.size() < 4) return std::string("N/A");
+  #     return std::string("Error");
 
-      uint16_t word1 = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
-      uint16_t word2 = ((uint16_t)(uint8_t)x[2] << 8) | (uint8_t)x[3];
-      uint32_t value = ((uint32_t)word2 << 16) | word1;
+  # - platform: modbus_controller
+  #   modbus_controller_id: ${modbus_controller_id}
+  #   name: "Device Fault"
+  #   register_type: holding
+  #   address: 103
+  #   response_size: 8
+  #   bitmask: 0
+  #   entity_category: diagnostic
+  #   raw_encode: NONE
+  #   icon: "mdi:message-alert-outline"
+  #   lambda: |-
+  #     if (x.size() < 8) return std::string("N/A");
 
-      if (value == 0) return std::string("OK");
+  #     uint16_t word1 = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
+  #     uint16_t word2 = ((uint16_t)(uint8_t)x[2] << 8) | (uint8_t)x[3];
+  #     uint16_t word3 = ((uint16_t)(uint8_t)x[4] << 8) | (uint8_t)x[5];
+  #     uint16_t word4 = ((uint16_t)(uint8_t)x[6] << 8) | (uint8_t)x[7];
 
-      if (value & (1UL << 1)) return std::string("Fan failure");
-      if (value & (1UL << 2)) return std::string("Grid phase failure");
-      if (value & (1UL << 3)) return std::string("Meter communication failure");
-      if (value & (1UL << 30)) return std::string("Battery loss");
-      if (value & (1UL << 31)) return std::string("Parallel communication quality");
+  #     uint64_t value = ((uint64_t)word4 << 48) | ((uint64_t)word3 << 32) | 
+  #                     ((uint64_t)word2 << 16) | word1;
 
-      return std::string("Error");
+  #     if (value == 0) return std::string("OK");
 
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "Device Fault"
-    register_type: holding
-    address: 103
-    response_size: 8
-    bitmask: 0
-    entity_category: diagnostic
-    raw_encode: NONE
-    icon: "mdi:message-alert-outline"
-    lambda: |-
-      if (x.size() < 8) return std::string("N/A");
+  #     if (value & (1ULL << 6)) return std::string("DC/DC Soft Start failure");
+  #     if (value & (1ULL << 9)) return std::string("Auxiliary power supply failure");
+  #     if (value & (1ULL << 12)) return std::string("Working mode changed");
+  #     if (value & (1ULL << 17)) return std::string("AC Over-current failure");
+  #     if (value & (1ULL << 18)) return std::string("Tz_Integ_Fault failure");
+  #     if (value & (1ULL << 19)) return std::string("DC Over-current failure");
+  #     if (value & (1ULL << 22)) return std::string("AC current leakage failure");
+  #     if (value & (1ULL << 63)) return std::string("Temperature is too high");
 
-      uint16_t word1 = ((uint16_t)(uint8_t)x[0] << 8) | (uint8_t)x[1];
-      uint16_t word2 = ((uint16_t)(uint8_t)x[2] << 8) | (uint8_t)x[3];
-      uint16_t word3 = ((uint16_t)(uint8_t)x[4] << 8) | (uint8_t)x[5];
-      uint16_t word4 = ((uint16_t)(uint8_t)x[6] << 8) | (uint8_t)x[7];
-
-      uint64_t value = ((uint64_t)word4 << 48) | ((uint64_t)word3 << 32) | 
-                      ((uint64_t)word2 << 16) | word1;
-
-      if (value == 0) return std::string("OK");
-
-      if (value & (1ULL << 6)) return std::string("DC/DC Soft Start failure");
-      if (value & (1ULL << 9)) return std::string("Auxiliary power supply failure");
-      if (value & (1ULL << 12)) return std::string("Working mode changed");
-      if (value & (1ULL << 17)) return std::string("AC Over-current failure");
-      if (value & (1ULL << 18)) return std::string("Tz_Integ_Fault failure");
-      if (value & (1ULL << 19)) return std::string("DC Over-current failure");
-      if (value & (1ULL << 22)) return std::string("AC current leakage failure");
-      if (value & (1ULL << 63)) return std::string("Temperature is too high");
-
-      return std::string("Error");
+  #     return std::string("Error");
 
 number:
   - platform: modbus_controller
