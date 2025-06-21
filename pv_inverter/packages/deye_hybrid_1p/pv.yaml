@@ -23,18 +23,18 @@
     value_type: U_WORD
     icon: "mdi:solar-power-variant"
 
-  - platform: template
-    name: "PV Power"
-    unit_of_measurement: "W"
-    id: pv_power
-    device_class: power
-    accuracy_decimals: 0
-    update_interval: 5s
-    icon: "mdi:solar-power-variant"
-    lambda: |-
-      float pv1 = isnan(id(pv1_power).state) ? 0.0 : id(pv1_power).state;
-      float pv2 = isnan(id(pv2_power).state) ? 0.0 : id(pv2_power).state;
-      return pv1 + pv2;
+  # - platform: template
+  #   name: "PV Power"
+  #   unit_of_measurement: "W"
+  #   id: pv_power
+  #   device_class: power
+  #   accuracy_decimals: 0
+  #   update_interval: 5s
+  #   icon: "mdi:solar-power-variant"
+  #   lambda: |-
+  #     float pv1 = isnan(id(pv1_power).state) ? 0.0 : id(pv1_power).state;
+  #     float pv2 = isnan(id(pv2_power).state) ? 0.0 : id(pv2_power).state;
+  #     return pv1 + pv2;
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
