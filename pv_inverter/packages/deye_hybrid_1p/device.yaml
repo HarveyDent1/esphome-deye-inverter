@@ -1,79 +1,29 @@
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: Device Control Board Firmware Raw 11
-    id: device_firmware_raw_11
+    name: Device Modbus Address
     register_type: holding
-    address: 11
+    address: 1
+    unit_of_measurement: ""
     accuracy_decimals: 0
     value_type: U_WORD
-    internal: true
-    
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: Device Control Board Firmware Raw 12
-    id: device_firmware_raw_14
-    register_type: holding
-    address: 12
-    accuracy_decimals: 0
-    value_type: U_WORD
-    internal: true
-
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: Device Control Board Firmware Raw 13
-    id: device_firmware_raw_15
-    register_type: holding
-    address: 13
-    accuracy_decimals: 0
-    value_type: U_WORD
-    internal: true
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Device Communication Board Firmware Raw 10
-#     id: device_comm_firmware_raw_16
-#     register_type: holding
-#     address: 10
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Device Communication Board Firmware Raw 14
-#     id: device_comm_firmware_raw_17
-#     register_type: holding
-#     address: 14
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Device Modbus Address
-#     register_type: holding
-#     address: 1
-#     unit_of_measurement: ""
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: mdi:identifier
-#     entity_category: diagnostic
+    icon: mdi:identifier
+    entity_category: diagnostic
   
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Device Rated Power
-#     id: device_rated_power_raw
-#     register_type: holding
-#     address: 16
-#     unit_of_measurement: W
-#     device_class: power
-#     accuracy_decimals: 0
-#     entity_category: diagnostic
-#     filters:
-#       - multiply: 0.1
-#     value_type: U_DWORD_R
-#     icon: mdi:flash
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: Device Rated Power
+    id: device_rated_power_raw
+    register_type: holding
+    address: 16
+    unit_of_measurement: W
+    device_class: power
+    accuracy_decimals: 0
+    entity_category: diagnostic
+    filters:
+      - multiply: 0.1
+    value_type: U_DWORD_R
+    icon: mdi:flash
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
