@@ -1,63 +1,33 @@
-# sensor:
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Inverter Date Time Raw 1
-#     id: inverter_datetime_raw1
-#     register_type: holding
-#     address: 22
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Inverter Date Time Raw 2
-#     id: inverter_datetime_raw2
-#     register_type: holding
-#     address: 23
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Inverter Date Time Raw 3
-#     id: inverter_datetime_raw3
-#     register_type: holding
-#     address: 24
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Device Control Board Firmware Raw 11
-#     id: device_firmware_raw_11
-#     register_type: holding
-#     address: 11
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: Device Control Board Firmware Raw 11
+    id: device_firmware_raw_11
+    register_type: holding
+    address: 11
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
     
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Device Control Board Firmware Raw 12
-#     id: device_firmware_raw_14
-#     register_type: holding
-#     address: 12
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: Device Control Board Firmware Raw 12
+    id: device_firmware_raw_14
+    register_type: holding
+    address: 12
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Device Control Board Firmware Raw 13
-#     id: device_firmware_raw_15
-#     register_type: holding
-#     address: 13
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     internal: true
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: Device Control Board Firmware Raw 13
+    id: device_firmware_raw_15
+    register_type: holding
+    address: 13
+    accuracy_decimals: 0
+    value_type: U_WORD
+    internal: true
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
