@@ -24,126 +24,116 @@ sensor:
       - multiply: 0.1
     value_type: U_DWORD_R
     icon: mdi:flash
+# MARKER
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: Device MPPTs
+    register_type: holding
+    address: 18
+    unit_of_measurement: ""
+    accuracy_decimals: 0
+    value_type: U_WORD
+    icon: mdi:solar-panel
+    entity_category: diagnostic
+    filters:
+      - lambda: |-
+          uint16_t value = (uint16_t)x;
+          // Extract upper nibble (bits 8-11) and shift right 8 bits
+          uint16_t mppts = (value >> 8) & 0x0F;
+          // Validation: if value exceeds 12 MPPTs, use default of 2
+          if (mppts < 1 || mppts > 12) {
+            return 2.0;
+          }
+          return (float)mppts;
 
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Device MPPTs
-#     register_type: holding
-#     address: 18
-#     unit_of_measurement: ""
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: mdi:solar-panel
-#     entity_category: diagnostic
-#     filters:
-#       - lambda: |-
-#           uint16_t value = (uint16_t)x;
-#           // Extract upper nibble (bits 8-11) and shift right 8 bits
-#           uint16_t mppts = (value >> 8) & 0x0F;
-#           // Validation: if value exceeds 12 MPPTs, use default of 2
-#           if (mppts < 1 || mppts > 12) {
-#             return 2.0;
-#           }
-#           return (float)mppts;
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Device Phases
-#     register_type: holding
-#     address: 18
-#     unit_of_measurement: ""
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: mdi:transmission-tower
-#     entity_category: diagnostic
-#     filters:
-#       - lambda: |-
-#           uint16_t value = (uint16_t)x;
-#           // Extract lower nibble (bits 0-3)
-#           uint16_t phases = value & 0x0F;
-#           // Validation: if value exceeds 3 phases, use default of 3
-#           if (phases < 1 || phases > 3) {
-#             return 3.0;
-#           }
-#           return (float)phases;
-
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Communications Board Failure Status
-#     register_type: holding
-#     address: 59
-#     accuracy_decimals: 0
-#     value_type: U_WORD
-#     icon: mdi:alert-circle
-#     entity_category: diagnostic
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: Device Phases
+    register_type: holding
+    address: 18
+    unit_of_measurement: ""
+    accuracy_decimals: 0
+    value_type: U_WORD
+    icon: mdi:transmission-tower
+    entity_category: diagnostic
+    filters:
+      - lambda: |-
+          uint16_t value = (uint16_t)x;
+          // Extract lower nibble (bits 0-3)
+          uint16_t phases = value & 0x0F;
+          // Validation: if value exceeds 3 phases, use default of 3
+          if (phases < 1 || phases > 3) {
+            return 3.0;
+          }
+          return (float)phases;
     
 # binary_sensor: null
 
-# switch:
-#   - platform: modbus_controller
-#     use_write_multiple: true
-#     modbus_controller_id: ${modbus_controller_id}
-#     name: Power Switch
-#     id: switch_power
-#     register_type: holding
-#     address: 43
-#     bitmask: 1
-#     entity_category: config
-#     icon: mdi:toggle-switch
+switch:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: Power Switch
+    id: switch_power
+    register_type: holding
+    address: 43
+    bitmask: 1
+    entity_category: config
+    icon: mdi:toggle-switch
 
-# text_sensor:
-#   - platform: modbus_controller
-#     modbus_controller_id: ${modbus_controller_id}
-#     bitmask: 0
-#     register_type: holding
-#     address: 80
-#     raw_encode: HEXBYTES
-#     name: Running Status
-#     icon: mdi:play-circle
-#     lambda: |-
-#       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
-#       switch (value) {
-#         case 0: return std::string("standby");
-#         case 1: return std::string("selfcheck");
-#         case 2: return std::string("normal");
-#         case 3: return std::string("alarm");
-#         case 4: return std::string("fault");
-#         default: return std::string("----");
-#       }
-#       return x;
+text_sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    bitmask: 0
+    register_type: holding
+    address: 59
+    raw_encode: HEXBYTES
+    name: Running Status
+    icon: mdi:play-circle
+    lambda: |-
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      switch (value) {
+        case 0: return std::string("standby");
+        case 1: return std::string("selfcheck");
+        case 2: return std::string("normal");
+        case 3: return std::string("alarm");
+        case 4: return std::string("fault");
+        default: return std::string("----");
+      }
+      return x;
 
-#   - platform: template
-#     name: Device Date Time
-#     update_interval: 10s
-#     icon: mdi:clock
-#     entity_category: diagnostic
-#     lambda: |-
-#       auto raw1 = (uint16_t)id(inverter_datetime_raw1).state;
-#       auto raw2 = (uint16_t)id(inverter_datetime_raw2).state;
-#       auto raw3 = (uint16_t)id(inverter_datetime_raw3).state;
+  - platform: template
+    name: Device Date Time
+    update_interval: 10s
+    icon: mdi:clock
+    entity_category: diagnostic
+    lambda: |-
+      auto raw1 = (uint16_t)id(inverter_datetime_raw1).state;
+      auto raw2 = (uint16_t)id(inverter_datetime_raw2).state;
+      auto raw3 = (uint16_t)id(inverter_datetime_raw3).state;
 
-#       if (isnan(id(inverter_datetime_raw1).state) || 
-#           isnan(id(inverter_datetime_raw2).state) || 
-#           isnan(id(inverter_datetime_raw3).state)) {
-#         return {"N/A"};
-#       }
+      if (isnan(id(inverter_datetime_raw1).state) || 
+          isnan(id(inverter_datetime_raw2).state) || 
+          isnan(id(inverter_datetime_raw3).state)) {
+        return {"N/A"};
+      }
 
-#       int year = 2000 + ((raw1 >> 8) & 0xFF);
-#       int month = raw1 & 0xFF;
-#       int day = (raw2 >> 8) & 0xFF;
-#       int hour = raw2 & 0xFF;
-#       int minute = (raw3 >> 8) & 0xFF;
-#       int second = raw3 & 0xFF;
+      int year = 2000 + ((raw1 >> 8) & 0xFF);
+      int month = raw1 & 0xFF;
+      int day = (raw2 >> 8) & 0xFF;
+      int hour = raw2 & 0xFF;
+      int minute = (raw3 >> 8) & 0xFF;
+      int second = raw3 & 0xFF;
 
-#       if (month < 1 || month > 12 || day < 1 || day > 31 || 
-#           hour > 23 || minute > 59 || second > 59) {
-#         return {"Invalid"};
-#       }
+      if (month < 1 || month > 12 || day < 1 || day > 31 || 
+          hour > 23 || minute > 59 || second > 59) {
+        return {"Invalid"};
+      }
 
-#       char buffer[20];
-#       snprintf(buffer, sizeof(buffer), "%04d-%02d-%02d %02d:%02d:%02d", 
-#               year, month, day, hour, minute, second);
-#       return {buffer};
+      char buffer[20];
+      snprintf(buffer, sizeof(buffer), "%04d-%02d-%02d %02d:%02d:%02d", 
+              year, month, day, hour, minute, second);
+      return {buffer};
 
 #   - platform: modbus_controller
 #     modbus_controller_id: ${modbus_controller_id}
