@@ -78,22 +78,77 @@ number:
     min_value: 150
     max_value: 710
   - id: !extend battery_low_voltage
-    multiply: 0.1
+    multiply: 10
     step: 0.1
     min_value: 150
     max_value: 710
   - id: !extend battery_equalization_voltage
-    multiply: 0.1
+    multiply: 10
     step: 0.1
     min_value: 150
     max_value: 710
   - id: !extend battery_absorption_voltage
-    multiply: 0.1
+    multiply: 10
     step: 0.1
     min_value: 150
     max_value: 710
   - id: !extend battery_float_voltage
-    multiply: 0.1
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend battery_empty_voltage
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend battery_grid_charging_start_voltage
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend battery_generator_charging_start_voltage
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend smartload_off_voltage
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend smartload_on_voltage
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend time_of_use_1_voltage
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend time_of_use_2_voltage
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend time_of_use_3_voltage
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend time_of_use_4_voltage
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend time_of_use_5_voltage
+    multiply: 10
+    step: 0.1
+    min_value: 150
+    max_value: 710
+  - id: !extend time_of_use_6_voltage
+    multiply: 10
     step: 0.1
     min_value: 150
     max_value: 710

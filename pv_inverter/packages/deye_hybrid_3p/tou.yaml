@@ -417,6 +417,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "Time of Use 1 Voltage"
+    id: time_of_use_1_voltage
     register_type: holding
     address: 160
     unit_of_measurement: "V"
@@ -432,6 +433,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "Time of Use 2 Voltage"
+    id: time_of_use_2_voltage
     register_type: holding
     address: 161
     unit_of_measurement: "V"
@@ -447,6 +449,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "Time of Use 3 Voltage"
+    id: time_of_use_3_voltage
     register_type: holding
     address: 162
     unit_of_measurement: "V"
@@ -462,6 +465,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "Time of Use 4 Voltage"
+    id: time_of_use_4_voltage
     register_type: holding
     address: 163
     unit_of_measurement: "V"
@@ -477,6 +481,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "Time of Use 5 Voltage"
+    id: time_of_use_5_voltage
     register_type: holding
     address: 164
     unit_of_measurement: "V"
@@ -492,6 +497,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "Time of Use 6 Voltage"
+    id: time_of_use_6_voltage
     register_type: holding
     address: 165
     unit_of_measurement: "V"
